@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Community API (Future)
+  version: 0.0.1
+paths:
+  /community/posts:
+    post:
+      summary: Submit a post to moderation queue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                image_url:
+                  type: string
+                caption:
+                  type: string
+              required: [image_url, caption]
+      responses:
+        '202':
+          description: Accepted for moderation (pending)
+    get:
+      summary: Public feed of approved posts
+      responses:
+        '200':
+          description: Approved posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id: { type: string }
+                    image_url: { type: string }
+                    caption: { type: string }
+  /community/posts/{id}/approve:
+    post:
+      summary: Approve a post (moderator)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Approved
+  /community/posts/{id}/reject:
+    post:
+      summary: Reject a post (moderator)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Rejected

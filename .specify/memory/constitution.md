@@ -20,7 +20,7 @@ JavaScript MUST be limited to navigation state, prompt fetch, file upload
 helpers. This preserves simplicity, lowers cognitive load, and ensures early
 content accessibility.
 
-### II. Beginner-Friendly Accessibility'
+### II. Beginner-Friendly Accessibility
 UI MUST use readable typography (>=16px base), clear hierarchy, high-contrast
 colors meeting WCAG AA, keyboard-focus outlines, alt text for all non-decorative
 images, and mobile-first layout. Navigation MUST clearly expose all primary
@@ -49,13 +49,16 @@ mail CRUD, prompt fetch, and health. Local dev MUST run with a single command.
 
 ## Product Scope & Minimal Requirements
 
+### Purpose
+Help beginners overcome uncertainty and start sending physical mail by providing
+clear, friendly steps; practical resources and templates; gentle creative prompts;
+and a private archive to preserve meaningful correspondence—promoting slow,
+intentional communication over social feeds.
+
 ### Static Pages
 Pages: Home, About, Get Started, Resources, Inspiration, Contact. Content MUST
 teach basics of sending physical mail (addressing, postage, pacing) and promote
-slow creative practice. Each page SHOULD state its primary goal:
-- Get Started: convert curiosity into action (low friction, scannable).
-- Resources: be the authoritative library for deeper answers.
-- Inspiration: provide AI writing/drawing prompt generation.
+slow creative practice.
 
 Landing page MAY include a progressive-enhancement "snail" interaction that
 crawls within a specified section. Controls MUST be simple "Fast" and "Slow"
@@ -145,8 +148,22 @@ Sections:
 - Glossary: definitions (Postage, First-Class, Airmail, Registered Mail, Postmark, Return Receipt).
 
 Tone & UX: authoritative but friendly; allow deep reading and downloadable assets; searchable and filterable.
-Community features (profiles, sharing, comments, reactions) are explicitly NOT
-implemented; MAY appear as stub text "Community coming later" only.
+Community features (profiles, open comments, reactions, public feeds) are NOT
+implemented initially. Gradual rollout MUST be safety-first. See Community MVP.
+
+### Community (Safety-First, Gradual)
+Initial MVP: Showcase Wall — users MAY submit photos of their letters or related
+experiences for public display. All submissions MUST enter a moderation queue;
+only approved content appears publicly. Submissions MUST exclude personal data:
+no addresses, full names, or sensitive information. Public interaction is limited
+to viewing approved posts (no likes, comments, or DMs). Clear submission guidance
+MUST be provided.
+
+Future Roadmap: Writing Buddy Matching — preference-based matching mediated by
+the system. Real contact info MUST NOT be publicly exposed. The system MUST
+mediate exchanges with reporting and blocking mechanisms. Messaging/DMs are
+explicitly excluded at this stage; future consideration REQUIRES a separate
+amendment and safety review.
 
 ## Development Workflow & Quality Gates
 
@@ -198,4 +215,4 @@ Compliance Review:
 Every PR SHOULD self-list touched endpoints, schema changes, and confirm no
 scope violations. Any deviation MUST cite amendment proposal or create one.
 
-**Version**: 0.2.0 | **Ratified**: 2025-12-01 | **Last Amended**: 2025-12-02
+**Version**: 0.3.0 | **Ratified**: 2025-12-01 | **Last Amended**: 2025-12-02

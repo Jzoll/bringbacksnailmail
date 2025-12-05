@@ -84,6 +84,7 @@ Authenticated users upload a photo and minimal details for sent/received letters
 - **FR-017**: Community interaction is limited to viewing approved posts; no likes, comments, or DMs in MVP.
 - **FR-018**: Moderation workflow exists with states (pending, approved, rejected); moderators can change state; public feed shows only approved.
 - **FR-019**: Writing Buddy Matching (roadmap): preference-based matching mediated by the system; real contact info is never publicly exposed; includes reporting and blocking mechanisms; messaging/DMs explicitly out-of-scope.
+- **FR-020**: The landing page will incorporate the tagline "slow and steady"
 
 ### User Story 4 - Community Showcase Wall (Priority: P4)
 

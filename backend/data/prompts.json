@@ -1,0 +1,62 @@
+[
+  {
+    "id": "w001",
+    "type": "writing",
+    "text": "Write about a place you'd like to visit and why it calls to you.",
+    "active": true
+  },
+  {
+    "id": "w002",
+    "type": "writing",
+    "text": "Describe a moment this week that made you smile.",
+    "active": true
+  },
+  {
+    "id": "w003",
+    "type": "writing",
+    "text": "Share a memory from your childhood that you'd like someone to know about.",
+    "active": true
+  },
+  {
+    "id": "w004",
+    "type": "writing",
+    "text": "What's something you're grateful for today?",
+    "active": true
+  },
+  {
+    "id": "w005",
+    "type": "writing",
+    "text": "Tell a story about the last book, movie, or show that moved you.",
+    "active": true
+  },
+  {
+    "id": "d001",
+    "type": "drawing",
+    "text": "Draw your favorite cup or mug.",
+    "active": true
+  },
+  {
+    "id": "d002",
+    "type": "drawing",
+    "text": "Sketch a simple map showing how to get from your front door to your favorite local spot.",
+    "active": true
+  },
+  {
+    "id": "d003",
+    "type": "drawing",
+    "text": "Illustrate what the weather feels like right now.",
+    "active": true
+  },
+  {
+    "id": "d004",
+    "type": "drawing",
+    "text": "Draw a simple portrait of someone you care about (stick figures welcome!).",
+    "active": true
+  },
+  {
+    "id": "d005",
+    "type": "drawing",
+    "text": "Sketch something you can see from where you're sitting.",
+    "active": true
+  }
+]

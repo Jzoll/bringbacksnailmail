@@ -17,11 +17,11 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create repo folders `frontend/` and `backend/` per plan
-- [ ] T002 Initialize React app in `frontend/` with Vite + TypeScript
-- [ ] T003 Initialize FastAPI app scaffold in `backend/` (`src/main.py`)
-- [ ] T004 [P] Add README skeleton at `README.md` linking spec, plan, quickstart
-- [ ] T004a [P] Add CHANGELOG at `CHANGELOG.md` (Keep a Changelog format)
+- [X] T001 Create repo folders `frontend/` and `backend/` per plan
+- [X] T002 Initialize React app in `frontend/` with Vite + TypeScript
+- [X] T003 Initialize FastAPI app scaffold in `backend/` (`src/main.py`)
+- [X] T004 [P] Add README skeleton at `README.md` linking spec, plan, quickstart
+- [X] T004a [P] Add CHANGELOG at `CHANGELOG.md` (Keep a Changelog format)
 
 
 ---
@@ -30,14 +30,14 @@
 
 **Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
 
-- [ ] T005 [P] Add client routing in `frontend/src/pages` via `react-router-dom`
-- [ ] T006 [P] Create global navigation `frontend/src/components/Nav.tsx`
-- [ ] T007 [P] Add base styles meeting accessibility baseline in `frontend/src/styles/base.css`
-- [ ] T008 Implement `/health` in `backend/src/main.py`
-- [ ] T009 Implement `/prompts` (random from seed) in `backend/src/api/prompts.py`
-- [ ] T010 [P] Wire frontend prompts client `frontend/src/services/promptsClient.ts`
-- [ ] T011 Configure IndexedDB wrapper in `frontend/src/services/idb.ts`
-- [ ] T012 [P] Document environment variables in `README.md` (backend host, prompt seed path)
+- [X] T005 [P] Add client routing in `frontend/src/pages` via `react-router-dom`
+- [X] T006 [P] Create global navigation `frontend/src/components/Nav.tsx`
+- [X] T007 [P] Add base styles meeting accessibility baseline in `frontend/src/styles/base.css`
+- [X] T008 Implement `/health` in `backend/src/main.py`
+- [X] T009 Implement `/prompts` (random from seed) in `backend/src/api/prompts.py`
+- [X] T010 [P] Wire frontend prompts client `frontend/src/services/promptsClient.ts`
+- [X] T011 Configure IndexedDB wrapper in `frontend/src/services/idb.ts`
+- [X] T012 [P] Document environment variables in `README.md` (backend host, prompt seed path)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -51,11 +51,11 @@
 
 ### Implementation for User Story 1
 
-- [ ] T013 [P] [US1] Create `frontend/src/pages/GetStarted.tsx` with hero checklist
-- [ ] T014 [P] [US1] Implement CTA expand/modal in `frontend/src/components/ChecklistCTA.tsx`
-- [ ] T015 [P] [US1] Add envelope diagram component `frontend/src/components/EnvelopeDiagram.tsx`
-- [ ] T016 [US1] Link resource anchors to Resources page sections
-- [ ] T017 [US1] Accessibility: focus order, button labels, base font check
+- [X] T013 [P] [US1] Create `frontend/src/pages/GetStarted.tsx` with hero checklist
+- [X] T014 [P] [US1] Implement CTA expand/modal in `frontend/src/components/ChecklistCTA.tsx`
+- [X] T015 [P] [US1] Add envelope diagram component `frontend/src/components/EnvelopeDiagram.tsx`
+- [X] T016 [US1] Link resource anchors to Resources page sections
+- [X] T017 [US1] Accessibility: focus order, button labels, base font check
 
 **Checkpoint**: User Story 1 independently functional
 
@@ -69,10 +69,10 @@
 
 ### Implementation for User Story 2
 
-- [ ] T018 [P] [US2] Create `frontend/src/pages/Inspiration.tsx` (tabs: writing/drawing)
-- [ ] T019 [P] [US2] Hook up promptsClient to backend `/prompts`
-- [ ] T020 [US2] Display prompt result with loading/fallback
-- [ ] T021 [US2] Error handling for empty seed (friendly fallback)
+- [X] T018 [P] [US2] Create `frontend/src/pages/Inspiration.tsx` (tabs: writing/drawing)
+- [X] T019 [P] [US2] Hook up promptsClient to backend `/prompts`
+- [X] T020 [US2] Display prompt result with loading/fallback
+- [X] T021 [US2] Error handling for empty seed (friendly fallback)
 
 **Checkpoint**: User Story 2 independently functional
 
@@ -86,12 +86,12 @@
 
 ### Implementation for User Story 3
 
-- [ ] T022 [P] [US3] Create `frontend/src/pages/Archive.tsx` with gallery view
-- [ ] T023 [P] [US3] Implement upload form `frontend/src/components/ArchiveForm.tsx`
-- [ ] T024 [P] [US3] IndexedDB stores and queries in `frontend/src/services/idb.ts`
-- [ ] T025 [US3] Validate image type/size client-side; friendly errors
-- [ ] T026 [US3] Render thumbnails via object URLs; delete flow
-- [ ] T027 [US3] Owner-only logic (client-side visibility) and no cross-user exposure
+- [X] T022 [P] [US3] Create `frontend/src/pages/Archive.tsx` with gallery view
+- [X] T023 [P] [US3] Implement upload form `frontend/src/components/ArchiveForm.tsx`
+- [X] T024 [P] [US3] IndexedDB stores and queries in `frontend/src/services/idb.ts`
+- [X] T025 [US3] Validate image type/size client-side; friendly errors
+- [X] T026 [US3] Render thumbnails via object URLs; delete flow
+- [X] T027 [US3] Owner-only logic (client-side visibility) and no cross-user exposure
 
 **Checkpoint**: User Story 3 independently functional
 
@@ -105,12 +105,12 @@
 
 ### Implementation for User Story 4
 
-- [ ] T028 [P] [US4] Add placeholder page `frontend/src/pages/Community.tsx` explaining moderation-first rollout
-- [ ] T029 [P] [US4] Define Pydantic models for CommunityPost in `backend/src/models/community.py`
-- [ ] T030 [US4] Add future routes (disabled by default) in `backend/src/api/community.py` matching `contracts/community.openapi.yaml`
-- [ ] T031 [US4] Add moderation states and stub service `backend/src/services/moderation.py`
-- [ ] T032 [US4] Public feed route returns approved only (disabled by default)
-- [ ] T033 [US4] Safety copy: submission rules (no addresses/full names) in UI stub
+- [X] T028 [P] [US4] Add placeholder page `frontend/src/pages/Community.tsx` explaining moderation-first rollout
+- [X] T029 [P] [US4] Define Pydantic models for CommunityPost in `backend/src/models/community.py`
+- [X] T030 [US4] Add future routes (disabled by default) in `backend/src/api/community.py` matching `contracts/community.openapi.yaml`
+- [X] T031 [US4] Add moderation states and stub service `backend/src/services/moderation.py`
+- [X] T032 [US4] Public feed route returns approved only (disabled by default)
+- [X] T033 [US4] Safety copy: submission rules (no addresses/full names) in UI stub
 
 **Checkpoint**: User Story 4 contracts ready; UI communicates roadmap; no public interaction beyond viewing
 
@@ -120,12 +120,12 @@
 
 **Purpose**: Improvements affecting multiple stories
 
-- [ ] T034 [P] Documentation updates in `README.md`
-- [ ] T035 Logging baseline in backend `backend/src/main.py`
-- [ ] T036 Error handling consistency across frontend pages
-- [ ] T037 [P] Add minimal smoke tests: `/prompts`, `/health`, prompt generation UI
-- [ ] T038 Accessibility audit pass: focus, alt, color contrast
-- [ ] T039 Quickstart validation: follow quickstart to run both services
+- [X] T034 [P] Documentation updates in `README.md`
+- [X] T035 Logging baseline in backend `backend/src/main.py`
+- [X] T036 Error handling consistency across frontend pages
+- [X] T037 [P] Add minimal smoke tests: `/prompts`, `/health`, prompt generation UI
+- [X] T038 Accessibility audit pass: focus, alt, color contrast
+- [X] T039 Quickstart validation: follow quickstart to run both services
 
 ---
 

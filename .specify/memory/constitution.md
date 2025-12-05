@@ -1,10 +1,10 @@
 <!--
 Sync Impact Report
-Version change: 0.1.1 → 0.2.0
-Modified sections: Static Pages (primary goals added), Get Started (checklist + CTAs), Resources (authoritative library structure), Navigation (primary actions)
-Added sections: None
+Version change: 0.2.0 → 0.2.1
+Modified sections: Development Workflow & Quality Gates (added CHANGELOG and README requirements), Governance (added Documentation Requirements section)
+Added sections: CHANGELOG requirements with Keep a Changelog format, update cadence rules
 Removed sections: None
-Templates reviewed: .specify/templates/plan-template.md ✅, spec-template.md ✅, tasks-template.md ✅, agent-file-template.md ✅, checklist-template.md ✅
+Templates reviewed: .specify/templates/plan-template.md ✅, spec-template.md ✅, tasks-template.md ✅
 Deferred TODOs: None
 -->
 
@@ -151,7 +151,18 @@ implemented; MAY appear as stub text "Community coming later" only.
 ## Development Workflow & Quality Gates
 
 ### Documentation
-README MUST include: setup, single run command, API endpoints catalog, schema.
+README MUST include: setup, single run command, API endpoints catalog, schema, testing instructions, accessibility notes, and links to all governance/spec documents.
+
+CHANGELOG MUST follow [Keep a Changelog](https://keepachangelog.com/) format and track all notable changes. Each entry MUST include:
+- Version number (semantic versioning)
+- Release date (YYYY-MM-DD)
+- Changes categorized as: Added, Changed, Deprecated, Removed, Fixed, Security
+- Links to compare versions in version control
+
+CHANGELOG MUST be updated:
+- REQUIRED: Before each tagged release
+- RECOMMENDED: After completing each phase or user story
+- REQUIRED: When constitution amendments are ratified
 
 ### Testing
 Smoke tests MUST cover: register/login/logout, create/list/get/delete mail,
@@ -194,8 +205,13 @@ Versioning Policy:
 - MINOR: New principle, new sanctioned page, new endpoint or table.
 - PATCH: Clarifications, wording improvements, minor test scope changes.
 
+Documentation Requirements:
+- Constitution amendments MUST update version number and Last Amended date
+- CHANGELOG MUST be updated to reflect constitution changes
+- README MUST be kept in sync with current architecture and setup instructions
+
 Compliance Review:
 Every PR SHOULD self-list touched endpoints, schema changes, and confirm no
 scope violations. Any deviation MUST cite amendment proposal or create one.
 
-**Version**: 0.2.0 | **Ratified**: 2025-12-01 | **Last Amended**: 2025-12-02
+**Version**: 0.2.1 | **Ratified**: 2025-12-01 | **Last Amended**: 2025-12-05

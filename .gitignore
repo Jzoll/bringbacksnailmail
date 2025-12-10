@@ -1,0 +1,42 @@
+# Node.js / JavaScript / TypeScript
+node_modules/
+dist/
+build/
+*.log
+.env*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
+/backend/.env
+/frontend/.env.local
+/frontend/.env
+uploads/
+images/

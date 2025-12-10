@@ -1,13 +1,13 @@
 # Tasks — Bring Back Snail Mail (v1)
 
 ## Phase 1: Setup
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Configure `backend` logging (structured) in `backend/src/main.py`
-- [ ] T003 Add `.env.example` with Postgres and storage settings at repo root
-- [ ] T004 Initialize Alembic in `backend/alembic/` and generate base migration
+- [X] T001 Create project structure per implementation plan
+- [X] T002 Configure `backend` logging (structured) in `backend/src/main.py`
+- [X] T003 Add `.env.example` with Postgres and storage settings at repo root
+- [X] T004 Initialize Alembic in `backend/alembic/` and generate base migration
 
 ## Phase 2: Foundation
- - [ ] T014 Implement basic rate limiting on `/auth/*` and `/mail` upload endpoints
+ - [X] T014 Implement basic rate limiting on `/auth/*` and `/mail` upload endpoints
 
 ## Phase 3: Get Started (US1)
  - [ ] T044.1 Upload error states: friendly inline messages for type/size with retry guidance

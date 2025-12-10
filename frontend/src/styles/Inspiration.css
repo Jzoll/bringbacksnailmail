@@ -133,20 +133,20 @@
   .inspiration-page {
     padding: 1rem 0.5rem;
   }
-  
+
   .inspiration-header h1 {
     font-size: 2rem;
   }
-  
+
   .prompt-type-toggle {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .prompt-type-toggle button {
     width: 100%;
   }
-  
+
   .prompt-card {
     padding: 1.5rem 1rem;
   }

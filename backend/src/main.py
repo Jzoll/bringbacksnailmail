@@ -11,8 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 
 # Import routers
-from .api import health, prompts, auth, mail
-# from .api import images  # To be created
+from .api import health, prompts, auth, mail, images
 
 # Structured logging setup
 class JSONFormatter(logging.Formatter):
@@ -96,7 +95,7 @@ app.include_router(health.router)
 app.include_router(prompts.router)
 app.include_router(auth.router)
 app.include_router(mail.router)
-# app.include_router(images.router)
+app.include_router(images.router)
 
 
 @app.exception_handler(Exception)

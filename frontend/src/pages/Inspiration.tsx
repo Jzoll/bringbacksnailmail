@@ -1,9 +1,11 @@
-import { useState } from 'react';
-import { fetchPrompt, Prompt } from '../services/promptsClient';
-import '../styles/Inspiration.css';
+import { useState } from "react";
+import { fetchPrompt, Prompt } from "../services/promptsClient";
+import "../styles/Inspiration.css";
 
 export default function Inspiration() {
-  const [promptType, setPromptType] = useState<'writing' | 'drawing'>('writing');
+  const [promptType, setPromptType] = useState<"writing" | "drawing">(
+    "writing"
+  );
   const [prompt, setPrompt] = useState<Prompt | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -11,18 +13,18 @@ export default function Inspiration() {
   const handleFetchPrompt = async () => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const newPrompt = await fetchPrompt(promptType);
       setPrompt(newPrompt);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load prompt');
+      setError(err instanceof Error ? err.message : "Failed to load prompt");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleTypeToggle = (type: 'writing' | 'drawing') => {
+  const handleTypeToggle = (type: "writing" | "drawing") => {
     setPromptType(type);
     setPrompt(null);
     setError(null);
@@ -37,16 +39,16 @@ export default function Inspiration() {
 
       <div className="prompt-type-toggle">
         <button
-          className={promptType === 'writing' ? 'active' : ''}
-          onClick={() => handleTypeToggle('writing')}
-          aria-pressed={promptType === 'writing'}
+          className={promptType === "writing" ? "active" : ""}
+          onClick={() => handleTypeToggle("writing")}
+          aria-pressed={promptType === "writing"}
         >
           Writing
         </button>
         <button
-          className={promptType === 'drawing' ? 'active' : ''}
-          onClick={() => handleTypeToggle('drawing')}
-          aria-pressed={promptType === 'drawing'}
+          className={promptType === "drawing" ? "active" : ""}
+          onClick={() => handleTypeToggle("drawing")}
+          aria-pressed={promptType === "drawing"}
         >
           Drawing
         </button>

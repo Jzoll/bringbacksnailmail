@@ -18,8 +18,8 @@
 - [X] T040 [P] Backend User model and hashing in `backend/src/models/user.py`
  - [ ] T023 [US1] Acceptance checks for Get Started: user completes checklist ≤10 min (SC1)
 - [X] T044 Backend upload `/mail` (multipart) with type/size validation in `backend/src/api/mail.py`
-- [ ] T045 [US3] Tabs (Sent/Received) + grid in `frontend/src/pages/MyMailbox.tsx`
- - [ ] T049 [US3] Pagination for archive list targeting ~200 items per user
+- [X] T045 [US3] Tabs (Sent/Received) + grid in `frontend/src/pages/MyMailbox.tsx`
+ - [X] T049 [US3] Pagination for archive list targeting ~200 items per user
 
 ## Phase 6: Community (US4)
 - [ ] T050 [US4] Stub page explaining moderation-first roadmap in `frontend/src/pages/Community.tsx`

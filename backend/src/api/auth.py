@@ -6,6 +6,7 @@ from pydantic import BaseModel, EmailStr, Field
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
+from typing import Optional
 import os
 import logging
 
@@ -28,7 +29,7 @@ ALGORITHM = "HS256"
 # Request/Response models
 class RegisterRequest(BaseModel):
     email: EmailStr
-    username: str | None = Field(None, min_length=3, max_length=50)
+    username: Optional[str] = Field(None, min_length=3, max_length=50)
     password: str = Field(..., min_length=8, max_length=100)
 
 

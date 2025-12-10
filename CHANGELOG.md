@@ -5,7 +5,17 @@ All notable changes to the Bring Back Snail Mail project will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.1.2] - 2025-12-10
+
+### Fixed
+- Backend: Added `python-dotenv==1.0.0` to requirements.txt for environment variable loading
+- Backend: Fixed `alembic/env.py` to load `.env` file using `python-dotenv`
+- Backend: Fixed `src/seeds.py` to load `.env` file for database connection
+- Backend: Created missing `backend/alembic.ini` configuration file in correct location
+- Backend: Fixed Python 3.9 compatibility by replacing `str | None` union syntax with `Optional[str]` in auth.py
+- Backend: Added `pydantic[email]` dependency for EmailStr validation support
+
+## [0.1.1] - 2025-12-09
 
 ### Added
 - Frontend: Get Started page with 5-step checklist (Write, Address, Stamp, Seal, Mail) and CTAs to Inspiration and Mailbox

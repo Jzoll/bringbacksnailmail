@@ -86,7 +86,7 @@ A web application encouraging the art of physical correspondence by providing cr
 
 ### Prerequisites
 - **Node.js** 18+ and npm
-- **Python** 3.9+
+- **Python** 3.9+ (Note: Python 3.10+ recommended for better type hint support)
 - **PostgreSQL** 14+
 - **Git**
 
@@ -107,12 +107,19 @@ A web application encouraging the art of physical correspondence by providing cr
 3. **Backend setup**
    ```bash
    cd backend
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate  # macOS/Linux
    # or venv\Scripts\activate on Windows
    pip install -r requirements.txt
+   
+   # Create PostgreSQL database (if not already created)
+   createdb snailmail_dev
+   
+   # Run migrations
    alembic upgrade head
-   python -m src.seeds  # Seed initial prompts
+   
+   # Seed initial prompts
+   python3 -m src.seeds
    ```
 
 4. **Frontend setup**
@@ -241,15 +248,33 @@ See the auto-generated OpenAPI docs at `http://localhost:8000/docs` when the bac
 - Image caching with `Cache-Control` headers
 - Rate limiting to prevent abuse
 
-## Contributing
+## Troubleshooting
 
-This project is currently in MVP development. Contributions are welcome once v0.1.0 is released.
+### Database Connection Issues
+If you see `role "user" does not exist` errors:
+- Ensure your `.env` file has the correct `DATABASE_URL` with your PostgreSQL username
+- Format: `postgresql://YOUR_USERNAME@localhost:5432/snailmail_dev`
+- On macOS with Homebrew PostgreSQL, the username is typically your system username
 
-Planned contribution areas:
-- Accessibility improvements (screen reader testing, contrast audits)
-- Internationalization (i18n for non-English postal systems)
-- Additional prompt categories (postcards, packages, thank-you notes)
-- Community features (once moderation infrastructure is in place)
+### Python Import Errors
+If you see `ModuleNotFoundError` for installed packages:
+- Ensure you're using the venv Python: `which python` should show the venv path
+- If you have a shell alias for `python`, use `python3` instead
+- Reactivate the venv: `deactivate && source venv/bin/activate`
+
+### Alembic "No config file" Error
+If `alembic upgrade head` fails:
+- Ensure `backend/alembic.ini` exists (not in `backend/alembic/alembic.ini`)
+- Run from the `backend/` directory, not from `backend/alembic/`
+
+### Missing Dependencies
+If you see `ImportError: email-validator is not installed`:
+```bash
+pip install 'pydantic[email]'
+```
+
+### Python 3.9 Type Hint Issues
+The codebase uses `Optional[str]` syntax for Python 3.9 compatibility. Python 3.10+ supports `str | None` syntax.
 
 ## License
 
@@ -257,7 +282,6 @@ Planned contribution areas:
 
 ## Acknowledgments
 
-- Inspired by the [r/penpals](https://reddit.com/r/penpals) and [r/snailmail](https://reddit.com/r/snailmail) communities
 - Postal guidelines sourced from USPS, Royal Mail, Canada Post, and other national services
 - Accessibility guidance from WCAG 2.1 and WebAIM resources
 
@@ -267,5 +291,5 @@ For questions or feedback: (Contact info TBD)
 
 ---
 
-**Version:** 0.1.0 (MVP)  
-**Last Updated:** December 9, 2025
+**Version:** 0.1.2  
+**Last Updated:** December 10, 2025

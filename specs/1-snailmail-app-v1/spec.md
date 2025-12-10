@@ -52,14 +52,15 @@ Non-functional goals: The application SHOULD be mobile-friendly (responsive layo
 - **FR3: Resources Library**: Categorized educational content with templates and external references.
 - **FR4: Prompts API**: Return a random prompt for `writing|drawing`; friendly 404 when none.
 - **FR5: Inspiration UI**: Toggle writing/drawing; request prompt; display/loading/error states.
-- **FR6: Archive Upload**: Validate image type `image/jpeg|image/png` and size ≤ 5MB; store with metadata.
+- **FR6: Archive Upload**: Validate image type `image/jpeg|image/png` and size ≤ 5MB; store image on server filesystem with metadata in Postgres; images accessed via authenticated streaming.
 - **FR7: Archive Views**: Tabs for Sent and Received; grid of cards; enlarge/zoom view.
 - **FR8: Archive Delete**: Remove item and reflect in UI immediately.
 - **FR9: Privacy**: Archive is private; no public sharing.
 - **FR10: Community Stub**: Public page communicates moderation-first roadmap; submissions disabled.
 - **FR11: Accessibility**: WCAG AA color contrast, keyboard operability, labeled diagrams, reduced motion.
-- **FR12: Auth (Future)**: Register, Sign In/Out, access control for archive and favorites.
+- **FR12: Auth (v1 scope)**: Register and Sign In/Out with JWT; My Mailbox is gated behind authentication. Favorites are deferred post‑MVP.
 - **FR13: Logging**: Structured logs on backend for requests and errors.
+- **FR13.1: Rate Limiting (v1)**: Enable lightweight limits on auth and upload endpoints to reduce abuse.
 - **FR14: Mobile-Friendly**: Responsive layouts and touch-target sizes; navigation and forms are usable on small screens (≤ 360px) and tablet.
 - **FR15: Scalability Baseline**: Backend endpoints are stateless; assets are cacheable; architecture is modular to support future horizontal scaling.
 - **FR16: Snail Interaction (PE)**: Landing page includes a snail graphic with speed controls (Fast/Slow); motion respects accessibility settings and degrades gracefully.
@@ -73,6 +74,7 @@ Non-functional goals: The application SHOULD be mobile-friendly (responsive layo
 - **SC6**: Accessibility audit passes core checks (focus, labels, contrast).
 - **SC7**: Mobile usability: 95% of interactions (nav, forms, prompt generation, archive add/delete) complete successfully on small screens (≤ 360px) without zooming.
 - **SC8**: Scalability readiness: Backend returns p95 response ≤ 300ms for `/health` and `/prompts` under light concurrency (e.g., 50 RPS in test), and static assets are served with cache headers.
+ - **SC9**: Basic rate limiting active on auth and upload endpoints without blocking normal usage.
 
 ## Key Entities
 - **ArchivedMail**: { id, direction: sent|received, title?, notes?, date?, image_blob/image_url, created_at }
@@ -80,7 +82,7 @@ Non-functional goals: The application SHOULD be mobile-friendly (responsive layo
 - **User**: { id, email, username?, password_hash }
 
 ## Assumptions
-- Archive in v1 uses client-side storage (no server-side persistence) for privacy and simplicity.
+- Archive in v1 uses server-side image storage with file paths in the DB; access is authenticated and streamed (no public URLs).
 - Community features are stub-only; no uploads or interactions.
 - Auth is planned for future; v1 UI works without sign-in, except archive.
 
@@ -100,3 +102,12 @@ Non-functional goals: The application SHOULD be mobile-friendly (responsive layo
 
 ## Notes
 - Spec aligns with constitution v0.2.1 (README/CHANGELOG policy, accessibility, privacy).
+
+## Clarifications
+### Session 2025-12-09
+- Q: What auth scope should v1 include? → A: Register/login with JWT; gate My Mailbox; favorites deferred.
+ - Q: Where should images be stored in v1? → A: Server-side storage with Postgres metadata; access via authenticated streaming.
+ - Q: Should v1 include rate limiting? → A: Yes — basic limits on auth and uploads.
+ - Q: How should upload errors be surfaced? → A: Friendly inline messages for type/size with retry guidance.
+ - Q: Expected per-user item volume? → A: ~200 items; paginate lists.
+ - Q: Accessibility audit tooling? → A: Use axe DevTools + Lighthouse.

@@ -11,8 +11,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 
 # Import routers
-from .api import health, prompts
-# from .api import auth, mail, images  # To be created
+from .api import health, prompts, auth, mail
+# from .api import images  # To be created
 
 # Structured logging setup
 class JSONFormatter(logging.Formatter):
@@ -94,8 +94,8 @@ async def log_requests(request: Request, call_next):
 # Include routers
 app.include_router(health.router)
 app.include_router(prompts.router)
-# app.include_router(auth.router)
-# app.include_router(mail.router)
+app.include_router(auth.router)
+app.include_router(mail.router)
 # app.include_router(images.router)
 
 

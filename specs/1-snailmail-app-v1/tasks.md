@@ -10,14 +10,14 @@
  - [X] T014 Implement basic rate limiting on `/auth/*` and `/mail` upload endpoints
 
 ## Phase 3: Get Started (US1)
- - [ ] T044.1 Upload error states: friendly inline messages for type/size with retry guidance
-- [ ] T030 [P] [US2] Toggle writing/drawing prompt type in `frontend/src/pages/Inspiration.tsx`
-- [ ] T031 [US2] Prompt fetch with loading and error states in `frontend/src/pages/Inspiration.tsx`
+ - [X] T044.1 Upload error states: friendly inline messages for type/size with retry guidance
+- [X] T030 [P] [US2] Toggle writing/drawing prompt type in `frontend/src/pages/Inspiration.tsx`
+- [X] T031 [US2] Prompt fetch with loading and error states in `frontend/src/pages/Inspiration.tsx`
  - [ ] T071.1 Mobile usability validation (axe + Lighthouse); map results to SC7
 ## Phase 5: Auth & My Mailbox (US3)
-- [ ] T040 [P] Backend User model and hashing in `backend/src/models/user.py`
+- [X] T040 [P] Backend User model and hashing in `backend/src/models/user.py`
  - [ ] T023 [US1] Acceptance checks for Get Started: user completes checklist ≤10 min (SC1)
-- [ ] T044 Backend upload `/mail` (multipart) with type/size validation in `backend/src/api/mail.py`
+- [X] T044 Backend upload `/mail` (multipart) with type/size validation in `backend/src/api/mail.py`
 - [ ] T045 [US3] Tabs (Sent/Received) + grid in `frontend/src/pages/MyMailbox.tsx`
  - [ ] T049 [US3] Pagination for archive list targeting ~200 items per user
 

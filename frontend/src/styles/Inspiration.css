@@ -1,0 +1,162 @@
+/* Inspiration page styles */
+
+.inspiration-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.inspiration-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.inspiration-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.inspiration-header p {
+  font-size: 1.125rem;
+  color: #6c757d;
+}
+
+.prompt-type-toggle {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.prompt-type-toggle button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: 2px solid #3498db;
+  background: white;
+  color: #3498db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 120px;
+  min-height: 44px; /* Touch target WCAG AAA */
+}
+
+.prompt-type-toggle button:hover {
+  background: #ebf5fb;
+}
+
+.prompt-type-toggle button:focus {
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+.prompt-type-toggle button.active {
+  background: #3498db;
+  color: white;
+}
+
+.prompt-display {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prompt-card {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.prompt-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.refresh-button,
+.get-prompt-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-height: 44px;
+}
+
+.refresh-button:hover,
+.get-prompt-button:hover {
+  background: #2980b9;
+}
+
+.refresh-button:focus,
+.get-prompt-button:focus {
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+.loading,
+.error,
+.prompt-empty {
+  text-align: center;
+  padding: 2rem;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.error button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.error button:hover {
+  background: #c0392b;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .inspiration-page {
+    padding: 1rem 0.5rem;
+  }
+  
+  .inspiration-header h1 {
+    font-size: 2rem;
+  }
+  
+  .prompt-type-toggle {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .prompt-type-toggle button {
+    width: 100%;
+  }
+  
+  .prompt-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .prompt-type-toggle button,
+  .refresh-button,
+  .get-prompt-button {
+    transition: none;
+  }
+}

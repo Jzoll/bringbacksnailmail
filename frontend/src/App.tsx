@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Inspiration from "./pages/Inspiration";
 import MyMailbox from "./pages/MyMailbox";
 import Home from "./pages/Home";
+import GetStarted from "./pages/GetStarted";
+import Resources from "./pages/Resources";
+import Community from "./pages/Community";
 import { isAuthenticated, logout } from "./services/authClient";
 import "./styles/App.css";
 
@@ -27,7 +30,16 @@ export default function App() {
                 <Link to="/">Home</Link>
               </li>
               <li>
+                <Link to="/get-started">Get Started</Link>
+              </li>
+              <li>
                 <Link to="/inspiration">Inspiration</Link>
+              </li>
+              <li>
+                <Link to="/resources">Resources</Link>
+              </li>
+              <li>
+                <Link to="/community">Community</Link>
               </li>
               {authenticated && (
                 <li>
@@ -54,7 +66,10 @@ export default function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/get-started" element={<GetStarted />} />
             <Route path="/inspiration" element={<Inspiration />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/community" element={<Community />} />
             <Route
               path="/mailbox"
               element={authenticated ? <MyMailbox /> : <Navigate to="/login" />}

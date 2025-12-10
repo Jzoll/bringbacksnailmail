@@ -1,0 +1,535 @@
+/* Get Started & Resources shared styles */
+
+.get-started-page,
+.resources-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.page-header .tagline {
+  font-size: 1.125rem;
+  color: #6c757d;
+}
+
+/* Get Started specific */
+.quick-checklist {
+  background: #ebf5fb;
+  border: 2px solid #3498db;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.quick-checklist h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  counter-reset: step-counter;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  counter-increment: step-counter;
+}
+
+.checklist li::before {
+  content: counter(step-counter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #3498db;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.checklist input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.checklist label {
+  font-size: 1.125rem;
+  color: #2c3e50;
+  cursor: pointer;
+}
+
+.detailed-steps {
+  margin: 3rem 0;
+}
+
+.step {
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.step h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.step p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: #495057;
+}
+
+.tips {
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+}
+
+.tips h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+.tips ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.tips li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.action-link {
+  display: inline-block;
+  color: #3498db;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: color 0.2s;
+}
+
+.action-link:hover {
+  color: #2980b9;
+}
+
+.addressing-diagram {
+  margin: 1.5rem 0;
+}
+
+.envelope-example {
+  border: 2px solid #2c3e50;
+  border-radius: 8px;
+  padding: 2rem;
+  background: white;
+  position: relative;
+  min-height: 300px;
+}
+
+.return-address {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.stamp-area {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border: 2px dashed #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.recipient-address {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25%, -50%);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+.checklist-inline ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.checklist-inline li {
+  padding: 0.5rem 0;
+  color: #495057;
+}
+
+.mailing-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.option {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #dee2e6;
+}
+
+.option h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+.option p {
+  margin: 0;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+.next-steps {
+  background: #d1f2eb;
+  border: 2px solid #27ae60;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.next-steps h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #27ae60;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Resources specific */
+.resources-nav {
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.resources-nav a {
+  color: #3498db;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.resources-nav a:hover {
+  background: #ebf5fb;
+  text-decoration: none;
+}
+
+.resource-section {
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 100px;
+}
+
+.resource-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.5rem;
+}
+
+.subsection {
+  margin: 2rem 0;
+}
+
+.subsection h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.subsection p,
+.subsection li {
+  line-height: 1.8;
+  color: #495057;
+}
+
+.tip {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.format-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.format {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #dee2e6;
+}
+
+.format h4 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.format pre {
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+  color: #495057;
+}
+
+.postal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.postal-table th,
+.postal-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.postal-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.external-link {
+  display: inline-block;
+  color: #3498db;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.template-grid,
+.guide-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.template-card,
+.guide-item {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.template-card h3,
+.guide-item h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+.template-card p,
+.guide-item p {
+  margin-bottom: 1rem;
+  color: #6c757d;
+}
+
+.supply-category {
+  margin: 2rem 0;
+}
+
+.supply-category h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.starter-kits {
+  background: #ebf5fb;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.starter-kits h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.kit-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.kit {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #3498db;
+}
+
+.kit h5 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: #3498db;
+}
+
+.kit p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.link-category {
+  margin: 2rem 0;
+}
+
+.link-category h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.link-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.link-category li {
+  padding: 0.5rem 0;
+}
+
+.link-category a {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.glossary {
+  margin: 1.5rem 0;
+}
+
+.glossary dt {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-top: 1rem;
+  font-size: 1.125rem;
+}
+
+.glossary dd {
+  margin: 0.5rem 0 0 1.5rem;
+  color: #495057;
+  line-height: 1.6;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .get-started-page,
+  .resources-page {
+    padding: 1rem 0.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .quick-checklist,
+  .step,
+  .resource-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .envelope-example {
+    min-height: 250px;
+    padding: 1.5rem;
+  }
+
+  .recipient-address {
+    font-size: 0.875rem;
+  }
+
+  .mailing-options,
+  .format-examples,
+  .template-grid,
+  .kit-options {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-buttons .btn {
+    width: 100%;
+  }
+
+  .resources-nav {
+    flex-direction: column;
+  }
+}

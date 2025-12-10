@@ -1,0 +1,165 @@
+/* Community page styles */
+
+.community-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.community-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.community-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #6c757d;
+}
+
+.coming-soon {
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.status-badge {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.coming-soon h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+.roadmap {
+  margin: 2rem 0;
+}
+
+.roadmap h3,
+.why-moderation h3,
+.stay-updated h3,
+.faq h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.feature-list strong {
+  display: block;
+  font-size: 1.125rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.feature-list p {
+  margin: 0;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+.why-moderation,
+.stay-updated {
+  background: #ebf5fb;
+  border-left: 4px solid #3498db;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+}
+
+.why-moderation p,
+.stay-updated p {
+  margin: 0;
+  line-height: 1.8;
+  color: #2c3e50;
+}
+
+.stay-updated a {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.faq {
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.faq-item {
+  margin-bottom: 1.5rem;
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.faq-item h4 {
+  font-size: 1.125rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .community-page {
+    padding: 1rem 0.5rem;
+  }
+
+  .community-header h1 {
+    font-size: 2rem;
+  }
+
+  .coming-soon {
+    padding: 2rem 1.5rem;
+  }
+
+  .coming-soon h2 {
+    font-size: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.125rem;
+  }
+}

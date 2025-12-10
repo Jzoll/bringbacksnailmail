@@ -30,7 +30,9 @@ export default function Snail({ initialSpeed = "slow" }: SnailProps) {
 
   return (
     <div
-      className={`snail-container ${prefersReducedMotion ? "reduced-motion" : ""}`}
+      className={`snail-container ${
+        prefersReducedMotion ? "reduced-motion" : ""
+      }`}
       role="img"
       aria-label="Animated snail mascot"
     >
@@ -90,7 +92,14 @@ export default function Snail({ initialSpeed = "slow" }: SnailProps) {
         />
 
         {/* Snail head */}
-        <circle cx="25" cy="50" r="12" fill="#D2B48C" stroke="#B8986A" strokeWidth="2" />
+        <circle
+          cx="25"
+          cy="50"
+          r="12"
+          fill="#D2B48C"
+          stroke="#B8986A"
+          strokeWidth="2"
+        />
 
         {/* Left antenna */}
         <line
@@ -131,7 +140,11 @@ export default function Snail({ initialSpeed = "slow" }: SnailProps) {
       </svg>
 
       {!prefersReducedMotion && (
-        <div className="speed-controls" role="group" aria-label="Animation speed controls">
+        <div
+          className="speed-controls"
+          role="group"
+          aria-label="Animation speed controls"
+        >
           <button
             onClick={toggleSpeed}
             className={`speed-btn ${speed === "slow" ? "active" : ""}`}

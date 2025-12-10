@@ -3,7 +3,9 @@ export default function Resources() {
     <div className="resources-page">
       <header className="page-header">
         <h1>Resources Library</h1>
-        <p className="tagline">Everything you need to master the art of snail mail</p>
+        <p className="tagline">
+          Everything you need to master the art of snail mail
+        </p>
       </header>
 
       <nav className="resources-nav">
@@ -17,21 +19,30 @@ export default function Resources() {
 
       <section id="guidelines" className="resource-section">
         <h2>Postal Guidelines</h2>
-        
+
         <div className="subsection">
           <h3>How Postage Works</h3>
           <p>
-            Postage is the fee you pay to have your mail delivered. The cost depends on:
+            Postage is the fee you pay to have your mail delivered. The cost
+            depends on:
           </p>
           <ul>
-            <li><strong>Size:</strong> Standard letters, large envelopes, packages</li>
-            <li><strong>Weight:</strong> 1 oz, 2 oz, 3 oz, etc.</li>
-            <li><strong>Destination:</strong> Domestic vs. international</li>
-            <li><strong>Speed:</strong> First-Class, Priority, Express</li>
+            <li>
+              <strong>Size:</strong> Standard letters, large envelopes, packages
+            </li>
+            <li>
+              <strong>Weight:</strong> 1 oz, 2 oz, 3 oz, etc.
+            </li>
+            <li>
+              <strong>Destination:</strong> Domestic vs. international
+            </li>
+            <li>
+              <strong>Speed:</strong> First-Class, Priority, Express
+            </li>
           </ul>
           <p className="tip">
-            💡 <strong>Tip:</strong> Forever stamps (US) always cover the current First-Class letter rate, 
-            even if prices increase.
+            💡 <strong>Tip:</strong> Forever stamps (US) always cover the
+            current First-Class letter rate, even if prices increase.
           </p>
         </div>
 
@@ -99,16 +110,26 @@ Recipient Name`}</pre>
         <div className="subsection">
           <h3>International Mail</h3>
           <p>
-            Sending mail internationally requires additional postage and may need customs forms 
-            for packages. Key points:
+            Sending mail internationally requires additional postage and may
+            need customs forms for packages. Key points:
           </p>
           <ul>
-            <li>Use clear, complete addresses in the destination country's format</li>
+            <li>
+              Use clear, complete addresses in the destination country's format
+            </li>
             <li>Include country name in English and local language</li>
             <li>Allow 1-3 weeks for delivery (varies widely)</li>
-            <li>Customs forms (CN22/CN23) required for packages over certain values</li>
+            <li>
+              Customs forms (CN22/CN23) required for packages over certain
+              values
+            </li>
           </ul>
-          <a href="https://www.usps.com/international/" target="_blank" rel="noopener noreferrer" className="external-link">
+          <a
+            href="https://www.usps.com/international/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="external-link"
+          >
             USPS International Services →
           </a>
         </div>
@@ -142,13 +163,21 @@ Recipient Name`}</pre>
 
       <section id="supplies" className="resource-section">
         <h2>Supplies & Tools</h2>
-        
+
         <div className="supply-category">
           <h3>Paper & Envelopes</h3>
           <ul>
-            <li><strong>Stationery:</strong> Quality letter paper (20-24 lb weight recommended)</li>
-            <li><strong>Envelopes:</strong> Standard #10 (business), A7 (5x7 cards), or custom sizes</li>
-            <li><strong>Postcards:</strong> 4" × 6" minimum, sturdy cardstock</li>
+            <li>
+              <strong>Stationery:</strong> Quality letter paper (20-24 lb weight
+              recommended)
+            </li>
+            <li>
+              <strong>Envelopes:</strong> Standard #10 (business), A7 (5x7
+              cards), or custom sizes
+            </li>
+            <li>
+              <strong>Postcards:</strong> 4" × 6" minimum, sturdy cardstock
+            </li>
           </ul>
         </div>
 
@@ -195,11 +224,17 @@ Recipient Name`}</pre>
         <div className="guide-list">
           <div className="guide-item">
             <h3>Photographing Mail for Your Archive</h3>
-            <p>Tips for capturing high-quality images of your letters and postcards before sending.</p>
+            <p>
+              Tips for capturing high-quality images of your letters and
+              postcards before sending.
+            </p>
           </div>
           <div className="guide-item">
             <h3>Preserving Paper Correspondence</h3>
-            <p>Best practices for storing and protecting physical letters long-term.</p>
+            <p>
+              Best practices for storing and protecting physical letters
+              long-term.
+            </p>
           </div>
           <div className="guide-item">
             <h3>Beginner Hand-Lettering</h3>
@@ -217,18 +252,74 @@ Recipient Name`}</pre>
         <div className="link-category">
           <h3>Official Postal Services</h3>
           <ul>
-            <li><a href="https://www.usps.com" target="_blank" rel="noopener noreferrer">United States Postal Service (USPS)</a></li>
-            <li><a href="https://www.royalmail.com" target="_blank" rel="noopener noreferrer">Royal Mail (UK)</a></li>
-            <li><a href="https://www.canadapost.ca" target="_blank" rel="noopener noreferrer">Canada Post</a></li>
-            <li><a href="https://www.auspost.com.au" target="_blank" rel="noopener noreferrer">Australia Post</a></li>
+            <li>
+              <a
+                href="https://www.usps.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                United States Postal Service (USPS)
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.royalmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Royal Mail (UK)
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.canadapost.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Canada Post
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.auspost.com.au"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Australia Post
+              </a>
+            </li>
           </ul>
         </div>
         <div className="link-category">
           <h3>Pen Pal & Letter Writing Communities</h3>
           <ul>
-            <li><a href="https://www.interpals.net" target="_blank" rel="noopener noreferrer">InterPals</a></li>
-            <li><a href="https://www.reddit.com/r/penpals/" target="_blank" rel="noopener noreferrer">r/penpals on Reddit</a></li>
-            <li><a href="https://www.postcrossing.com" target="_blank" rel="noopener noreferrer">Postcrossing</a></li>
+            <li>
+              <a
+                href="https://www.interpals.net"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                InterPals
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.reddit.com/r/penpals/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                r/penpals on Reddit
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.postcrossing.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Postcrossing
+              </a>
+            </li>
           </ul>
         </div>
       </section>
@@ -240,25 +331,41 @@ Recipient Name`}</pre>
           <dd>The fee paid for mail delivery, usually via stamps.</dd>
 
           <dt>First-Class Mail</dt>
-          <dd>Standard mail service for letters and lightweight packages; typical delivery in 1-5 days domestically.</dd>
+          <dd>
+            Standard mail service for letters and lightweight packages; typical
+            delivery in 1-5 days domestically.
+          </dd>
 
           <dt>Forever Stamp (US)</dt>
-          <dd>A stamp that always covers the current First-Class letter rate, regardless of price changes.</dd>
+          <dd>
+            A stamp that always covers the current First-Class letter rate,
+            regardless of price changes.
+          </dd>
 
           <dt>Airmail</dt>
-          <dd>Mail transported by air; typically used for international mail.</dd>
+          <dd>
+            Mail transported by air; typically used for international mail.
+          </dd>
 
           <dt>Registered Mail</dt>
           <dd>Mail service with tracking and insurance for valuable items.</dd>
 
           <dt>Return Receipt</dt>
-          <dd>Proof of delivery service that provides a signature confirmation.</dd>
+          <dd>
+            Proof of delivery service that provides a signature confirmation.
+          </dd>
 
           <dt>Postmark</dt>
-          <dd>The official mark stamped on mail by the postal service, showing date and location.</dd>
+          <dd>
+            The official mark stamped on mail by the postal service, showing
+            date and location.
+          </dd>
 
           <dt>ZIP Code / Postal Code</dt>
-          <dd>Numerical code used to identify delivery areas (ZIP in US, postcode in UK, etc.).</dd>
+          <dd>
+            Numerical code used to identify delivery areas (ZIP in US, postcode
+            in UK, etc.).
+          </dd>
         </dl>
       </section>
     </div>

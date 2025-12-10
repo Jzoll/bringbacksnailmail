@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Frontend: Snail animation component with Fast/Slow speed controls and prefers-reduced-motion support
 - Frontend: Snail integrated into Home page hero section as progressive enhancement
 - Accessibility: Animation respects user's reduced motion preferences with graceful degradation
+- Documentation: Comprehensive root README.md with tech stack overview, setup instructions, project structure, and API catalog
+- Documentation: Updated backend/README.md with complete endpoint documentation
+- Documentation: Updated frontend/README.md with architecture details and feature completion status
+- Documentation: Accessibility audit checklist (`specs/1-snailmail-app-v1/checklists/accessibility.md`) with WCAG AA compliance tracking
+- Documentation: Performance validation checklist (`specs/1-snailmail-app-v1/checklists/performance.md`) with benchmarking plan and optimization strategies
 
 ## [0.1.0] - 2025-12-09
 

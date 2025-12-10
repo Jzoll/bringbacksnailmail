@@ -49,19 +49,18 @@ The API will be available at `http://localhost:8000`.
 ### Prompts
 - `GET /prompts?type=writing|drawing` — Get a random prompt
 
-### Auth (To be implemented)
-- `POST /auth/register` — Register new user
-- `POST /auth/login` — Sign in
-- `POST /auth/logout` — Sign out
+### Auth
+- `POST /auth/register` — Register new user (email, username, password)
+- `POST /auth/login` — Sign in (returns JWT access token)
+- `POST /auth/logout` — Sign out (client-side token cleanup)
 
-### Mail (To be implemented)
-- `POST /mail` — Upload new mail item
-- `GET /mail` — List user's mail items
-- `GET /mail/:id` — Get specific mail item
-- `DELETE /mail/:id` — Delete mail item
+### Mail
+- `POST /mail` — Upload new mail item (multipart/form-data with image, title, notes, mail_date, direction)
+- `GET /mail?direction=sent|received&skip=0&limit=50` — List user's mail items (paginated, authenticated)
+- `DELETE /mail/:id` — Delete mail item (ownership verified, deletes file and DB record)
 
-### Images (To be implemented)
-- `GET /images/:id` — Stream authenticated image
+### Images
+- `GET /images/:id` — Stream authenticated image (requires valid JWT token)
 
 ## Architecture
 

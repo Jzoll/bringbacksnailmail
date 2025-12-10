@@ -20,7 +20,8 @@
 }
 
 @keyframes crawl-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
   50% {
@@ -29,7 +30,8 @@
 }
 
 @keyframes crawl-fast {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
   50% {
@@ -49,7 +51,8 @@
 }
 
 @keyframes wiggle-left {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
   50% {
@@ -58,7 +61,8 @@
 }
 
 @keyframes wiggle-right {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
   50% {

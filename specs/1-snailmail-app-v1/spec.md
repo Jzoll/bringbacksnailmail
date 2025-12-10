@@ -18,7 +18,7 @@ Non-functional goals: The application SHOULD be mobile-friendly (responsive layo
 - Explore community content (future, moderated).
 
 ## Primary Pages / Navigation
-- About, Get Started, Resources, Inspiration, My Mailbox (Authenticated), Community Wall (TBD), Contact, Sign In / Register.
+- Home, About, Get Started, Resources, Inspiration, My Mailbox (Authenticated), Community Wall (TBD), Contact, Sign In / Register.
 
 ### Landing Page Interaction (PE)
 - A snail graphic will crawl across a defined section of the landing page as a progressive enhancement.
@@ -77,7 +77,7 @@ Non-functional goals: The application SHOULD be mobile-friendly (responsive layo
  - **SC9**: Basic rate limiting active on auth and upload endpoints without blocking normal usage.
 
 ## Key Entities
-- **ArchivedMail**: { id, direction: sent|received, title?, notes?, date?, image_blob/image_url, created_at }
+- **ArchivedMail**: { id, direction: sent|received, title?, notes?, date?, file_path, created_at }
 - **Prompt**: { id, type: writing|drawing, text, active }
 - **User**: { id, email, username?, password_hash }
 

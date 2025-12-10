@@ -4,7 +4,7 @@
 - Frontend: Vite + React, client-side routing; plain CSS/CSS modules; desktop-first, mobile-compatible; accessibility baseline (focus, labels, reduced-motion).
 - Backend: FastAPI + Pydantic; stateless REST; structured logging; minimal middleware.
 - Storage: Postgres via SQLAlchemy (users, archived_mail, prompts); images on server filesystem with authenticated streaming; no public URLs.
-- Auth: Secure password hashing; JWT access tokens; input validation; optional rate limiting.
+- Auth: Secure password hashing; JWT access tokens; input validation; enable lightweight rate limiting on auth and upload endpoints.
 - Non-functional: Performance (cache-friendly assets), scalability-ready API, robust error messages, privacy-first.
 
 ## Constitution Check
@@ -25,7 +25,7 @@
 - Confirm image storage (server filesystem) + streaming: DECIDED.
 - Choose JWT vs sessions: DECIDED JWT.
 - Migration tool: Alembic for SQLAlchemy: DECIDED.
-- Rate limiting: Optional (auth/uploads) via middleware or proxy: DECIDED optional.
+- Rate limiting: Enabled (auth/uploads) via lightweight middleware or proxy: DECIDED enabled.
 - Output: research.md (decisions, rationale, alternatives).
 
 ## Phase 1 — Design & Contracts

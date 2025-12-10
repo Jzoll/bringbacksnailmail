@@ -7,31 +7,19 @@
 - [ ] T004 Initialize Alembic in `backend/alembic/` and generate base migration
 
 ## Phase 2: Foundation
-- [ ] T010 [P] Frontend routing and global nav in `frontend/src/App.tsx`
-- [ ] T011 Base responsive styles and accessibility baseline in `frontend/src/styles/base.css`
-- [ ] T012 Backend `/health` endpoint in `backend/src/api/health.py`
-- [ ] T013 Backend `/prompts` endpoint with friendly 404 in `backend/src/api/prompts.py`
+ - [ ] T014 Implement basic rate limiting on `/auth/*` and `/mail` upload endpoints
 
 ## Phase 3: Get Started (US1)
-- [ ] T020 [US1] Supplies list and addressing diagram in `frontend/src/pages/GetStarted.tsx`
-- [ ] T021 [US1] Postage placement and mailing options in `frontend/src/pages/GetStarted.tsx`
-- [ ] T022 [US1] Printable templates and checklist in `frontend/src/pages/GetStarted.tsx`
-
-## Phase 4: Inspiration (US2)
+ - [ ] T044.1 Upload error states: friendly inline messages for type/size with retry guidance
 - [ ] T030 [P] [US2] Toggle writing/drawing prompt type in `frontend/src/pages/Inspiration.tsx`
 - [ ] T031 [US2] Prompt fetch with loading and error states in `frontend/src/pages/Inspiration.tsx`
-- [ ] T032 [US2] Display prompt and refresh action in `frontend/src/pages/Inspiration.tsx`
-
+ - [ ] T071.1 Mobile usability validation (axe + Lighthouse); map results to SC7
 ## Phase 5: Auth & My Mailbox (US3)
 - [ ] T040 [P] Backend User model and hashing in `backend/src/models/user.py`
-- [ ] T041 Backend JWT register/login/logout in `backend/src/api/auth.py`
-- [ ] T042 [P] Client auth store + route guards in `frontend/src/state/auth.ts`
-- [ ] T043 Backend `archived_mail` model + migration in `backend/src/models/archived_mail.py`
+ - [ ] T023 [US1] Acceptance checks for Get Started: user completes checklist ≤10 min (SC1)
 - [ ] T044 Backend upload `/mail` (multipart) with type/size validation in `backend/src/api/mail.py`
 - [ ] T045 [US3] Tabs (Sent/Received) + grid in `frontend/src/pages/MyMailbox.tsx`
-- [ ] T046 [US3] Authenticated image streaming `/images/:id` in `backend/src/api/images.py`
-- [ ] T047 [US3] Enlarge/zoom card modal in `frontend/src/components/MailCardModal.tsx`
-- [ ] T048 [US3] Delete item and UI refresh in `frontend/src/pages/MyMailbox.tsx`
+ - [ ] T049 [US3] Pagination for archive list targeting ~200 items per user
 
 ## Phase 6: Community (US4)
 - [ ] T050 [US4] Stub page explaining moderation-first roadmap in `frontend/src/pages/Community.tsx`

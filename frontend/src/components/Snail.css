@@ -1,0 +1,149 @@
+.snail-container {
+  position: relative;
+  display: inline-block;
+  padding: 1rem;
+}
+
+.snail-svg {
+  display: block;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Animation for slow speed */
+.snail-svg.speed-slow {
+  animation: crawl-slow 8s ease-in-out infinite;
+}
+
+/* Animation for fast speed */
+.snail-svg.speed-fast {
+  animation: crawl-fast 3s ease-in-out infinite;
+}
+
+@keyframes crawl-slow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes crawl-fast {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(40px);
+  }
+}
+
+/* Antenna wiggle animations */
+.antenna-left {
+  animation: wiggle-left 2s ease-in-out infinite;
+  transform-origin: 20px 45px;
+}
+
+.antenna-right {
+  animation: wiggle-right 2s ease-in-out infinite;
+  transform-origin: 30px 45px;
+}
+
+@keyframes wiggle-left {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes wiggle-right {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Reduced motion support - pause all animations */
+.snail-container.reduced-motion .snail-svg,
+.snail-container.reduced-motion .antenna-left,
+.snail-container.reduced-motion .antenna-right {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snail-svg,
+  .antenna-left,
+  .antenna-right {
+    animation: none !important;
+  }
+}
+
+/* Speed control buttons */
+.speed-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.speed-btn {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 60px;
+}
+
+.speed-btn:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.speed-btn:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.speed-btn.active {
+  background: #3498db;
+  border-color: #2980b9;
+  color: white;
+}
+
+.speed-btn.active:hover {
+  background: #2980b9;
+}
+
+/* Reduced motion notice */
+.reduced-motion-notice {
+  font-size: 0.875rem;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .snail-svg {
+    width: 80px;
+    height: 53px;
+  }
+
+  .speed-controls {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .speed-btn {
+    width: 100%;
+  }
+}

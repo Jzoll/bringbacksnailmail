@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Frontend: Community Wall stub page with moderation-first roadmap and safety principles
 - Frontend: Navigation updated with links to Get Started, Resources, and Community pages
 - Frontend: Shared styling for Get Started and Resources pages with responsive breakpoints
+- Frontend: Snail animation component with Fast/Slow speed controls and prefers-reduced-motion support
+- Frontend: Snail integrated into Home page hero section as progressive enhancement
+- Accessibility: Animation respects user's reduced motion preferences with graceful degradation
 
 ## [0.1.0] - 2025-12-09
 

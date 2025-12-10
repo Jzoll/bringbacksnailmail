@@ -1,22 +1,29 @@
+import Snail from "../components/Snail";
+
 export default function Home() {
   return (
     <div className="home-page">
       <section className="hero">
-        <h1>Bring Back Snail Mail</h1>
-        <p className="tagline">
-          Rediscover the joy of handwritten correspondence
-        </p>
-        <p className="subtitle">
-          Learn to send physical mail, find creative prompts, and archive your
-          meaningful letters.
-        </p>
-        <div className="cta-buttons">
-          <a href="/get-started" className="btn btn-primary">
-            Get Started
-          </a>
-          <a href="/inspiration" className="btn btn-secondary">
-            Find Inspiration
-          </a>
+        <div className="hero-content">
+          <h1>Bring Back Snail Mail</h1>
+          <p className="tagline">
+            Rediscover the joy of handwritten correspondence
+          </p>
+          <p className="subtitle">
+            Learn to send physical mail, find creative prompts, and archive your
+            meaningful letters.
+          </p>
+          <div className="cta-buttons">
+            <a href="/get-started" className="btn btn-primary">
+              Get Started
+            </a>
+            <a href="/inspiration" className="btn btn-secondary">
+              Find Inspiration
+            </a>
+          </div>
+        </div>
+        <div className="hero-decoration">
+          <Snail initialSpeed="slow" />
         </div>
       </section>
 

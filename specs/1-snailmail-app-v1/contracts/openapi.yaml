@@ -1,0 +1,248 @@
+openapi: 3.0.3
+info:
+  title: Bring Back Snail Mail API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+  /auth/register:
+    post:
+      summary: Register user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Validation error
+  /auth/login:
+    post:
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: JWT token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '401':
+          description: Unauthorized
+  /auth/logout:
+    post:
+      summary: Logout (client-side token discard)
+      responses:
+        '204':
+          description: No Content
+  /prompts:
+    get:
+      summary: Get random prompt
+      parameters:
+        - in: query
+          name: type
+          schema:
+            type: string
+            enum: [writing, drawing]
+          required: true
+      responses:
+        '200':
+          description: Prompt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prompt'
+        '404':
+          description: No prompt available
+  /mail:
+    get:
+      summary: List archived mail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ArchivedMail'
+    post:
+      summary: Upload archived mail
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                title:
+                  type: string
+                notes:
+                  type: string
+                direction:
+                  type: string
+                  enum: [sent, received]
+                mail_date:
+                  type: string
+                  format: date
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArchivedMail'
+        '400':
+          description: Validation error
+  /mail/{id}:
+    get:
+      summary: Get archived mail by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArchivedMail'
+        '404':
+          description: Not found
+    delete:
+      summary: Delete archived mail
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+        '404':
+          description: Not found
+  /images/{id}:
+    get:
+      summary: Stream image by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Image stream
+          content:
+            image/jpeg: {}
+            image/png: {}
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    RegisterRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        username:
+          type: string
+        password:
+          type: string
+          minLength: 8
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          example: bearer
+    Prompt:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum: [writing, drawing]
+        text:
+          type: string
+        active:
+          type: boolean
+    ArchivedMail:
+      type: object
+      properties:
+        id:
+          type: string
+        user_id:
+          type: string
+        title:
+          type: string
+        notes:
+          type: string
+        direction:
+          type: string
+          enum: [sent, received]
+        mail_date:
+          type: string
+          format: date
+        file_path:
+          type: string
+        created_at:
+          type: string
+          format: date-time

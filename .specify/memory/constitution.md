@@ -12,18 +12,17 @@ Deferred TODOs: None
 
 ## Core Principles
 
-### I. Minimal Static Foundation
-The product MUST begin as static-first: public pages (Home, About, Get Started,
-Resources, Inspiration, Contact) are delivered as simple static HTML/CSS with
-minimal progressive enhancement. No SPA framework is required. Client-side
-JavaScript MUST be limited to navigation state, prompt fetch, file upload
-helpers. This preserves simplicity, lowers cognitive load, and ensures early
+### I. Minimal App Foundation
+The product MAY use a light SPA framework (e.g., React + Vite) with client-side routing for public pages (Home, About, Get Started,
+Resources, Inspiration, Contact). Progressive enhancement remains REQUIRED. Client-side
+JavaScript SHOULD be lean and focused on navigation state, prompt fetch, authentication,
+and file upload helpers. This preserves simplicity, lowers cognitive load, and ensures early
 content accessibility.
 
-### II. Beginner-Friendly Accessibility'
+### II. Beginner-Friendly Accessibility
 UI MUST use readable typography (>=16px base), clear hierarchy, high-contrast
 colors meeting WCAG AA, keyboard-focus outlines, alt text for all non-decorative
-images, and mobile-first layout. Navigation MUST clearly expose all primary
+images, and desktop-first layout with mobile compatibility (≤360px) and touch-accessible controls. Navigation MUST clearly expose all primary
 sections plus "My Mailbox" and auth actions. Copy MUST emphasize slow, intentional
 creativity and learning physical mail basics.
 
@@ -39,6 +38,7 @@ Backend MUST expose only essential JSON endpoints: auth (register, login, logout
 archived mail CRUD (create, list, get, delete), prompts retrieval, health. Each
 endpoint MUST have stable request/response shapes and return appropriate HTTP
 status codes. No hidden side effects. File uploads MUST validate type & size.
+Images MUST NOT be accessible via public URLs; access MUST be via authenticated streaming routes.
 
 ### V. Portable Simplicity
 Implementation MUST remain framework-agnostic: clear separation of static pages,
@@ -96,16 +96,16 @@ Health:
 
 ### Data Model (Minimum)
 users: id, email (unique), username (unique nullable), password_hash, created_at
-archived_mail: id, user_id (fk), direction (sent|received), title?, notes?, mail_date?, image_url, created_at
+archived_mail: id, user_id (fk), direction (sent|received), title?, notes?, mail_date?, file_path, created_at
 prompts: id, type (writing|drawing), text, active (bool), created_at
 
 ### File Storage
-Images MUST be validated (MIME image/jpeg or image/png) and stored via local disk
-or object storage. Reference saved in archived_mail.image_url (or storage key).
+Images MUST be validated (MIME image/jpeg or image/png) and stored on the server filesystem.
+Only the file path is stored in the database, and images are served exclusively via authenticated streaming endpoints (no public URLs).
 
 ### Prompt Generation
-"AI" prompt generator MAY be a simple random selector of active prompts.
-No model inference required initially. Future expansion requires amendment.
+Prompt generator SHOULD be a simple random selector of active prompts from seed data.
+No AI model inference is required initially. Future expansion requires amendment.
 
 ### Tone & Content
 Language MUST promote intentional slowing, letter craftsmanship, and learning
@@ -176,7 +176,7 @@ call and error. No verbose debug by default.
 ### Validation & Security
 Inputs MUST be validated server-side (email format, image size/type, field
 lengths). Auth endpoints SHOULD have basic rate limiting. Passwords MUST be
-securely hashed. Sessions MAY be cookie or token-based; MUST expire.
+securely hashed. Authentication MUST use JWT access tokens by default with sensible expiration.
 
 ### Accessibility (Controls)
 Interactive controls (e.g., snail speed buttons) MUST have accessible labels,
@@ -214,4 +214,4 @@ Compliance Review:
 Every PR SHOULD self-list touched endpoints, schema changes, and confirm no
 scope violations. Any deviation MUST cite amendment proposal or create one.
 
-**Version**: 0.2.1 | **Ratified**: 2025-12-01 | **Last Amended**: 2025-12-05
+**Version**: 0.2.2 | **Ratified**: 2025-12-01 | **Last Amended**: 2025-12-09

@@ -5,6 +5,25 @@ All notable changes to the Bring Back Snail Mail project will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2025-12-19
+
+### Added
+- Documentation: GitHub Project board structure (`github-project-structure.md`) with 15 epics, 47+ features, and 200+ tasks
+- Documentation: AI-assisted development workflow documentation with Speckit phases (analyze, specify, plan, tasks, constitution, implement)
+- Documentation: AI code review checklist with 40+ items covering security, functionality, accessibility, performance, and quality
+- Project Management: Epic 0 for AI-Assisted Specification & Planning with 5 features
+- Project Management: Epic E1.F4 for AI-Assisted Code Generation (speckit.implement) with 18 implementation tasks
+- Project Management: Epic E12.F4 for AI Workflow Documentation with 8 governance tasks
+- GitHub Setup: Created 24 project labels (area, type, phase, priority, status)
+- GitHub Setup: Created initial epic issues (#3-#6) for E0-E3
+
+### Updated
+- Project Management: Added `ai-generated` labels to 16 features (E4, E6, E7, E8)
+- Project Management: Added security review tasks to E2.F4 and E7.F1
+- Project Management: All 15 epics now include complete label sets
+- Project Management: All 47+ features include type, phase, area, priority, and size labels
+- Project Management: All 200+ tasks ready for GitHub Projects board
+
 ## [0.1.2] - 2025-12-10
 
 ### Fixed

@@ -23,6 +23,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation: Home / Dashboard pain points expanded with 3 logged issues
 - Documentation: Get Started page pain point added to framework
 
+### Fixed
+- Frontend: Sign In page 404 resolved by adding `/login` route and `SignIn` page wired to `authClient.login()`
+- Frontend: Resources page non-functional buttons replaced with disabled "Coming soon" links to avoid broken actions
+- Frontend: Home page feature cards now link to destination pages (Get Started, Inspiration, Mailbox)
+
+### Changed
+- Frontend: Removed redundant "Home" nav item; brand logo routes to home
+- Frontend: Snail hero decoration positioned beneath content for visual depth (absolute positioning, z-index)
+- Frontend: Get Started page decluttered using expandable `details/summary` for steps
+- Frontend: Community page made more inviting with welcoming hero section and clear CTAs
+- Frontend: Get Started page spacing increased (left margin 40px; wider horizontal padding) to avoid edge crowding
+
 ## [0.1.3] - 2025-12-19
 
 ### Added

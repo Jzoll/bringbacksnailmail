@@ -4,7 +4,7 @@
 .resources-page {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 1.75rem;
 }
 
 .page-header {
@@ -91,6 +91,45 @@
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
+}
+
+/* Inviting expandable steps (details/summary) */
+.step > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.5rem 0.75rem;
+  margin: -0.5rem -0.75rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.step > summary::-webkit-details-marker {
+  display: none;
+}
+
+.step > summary::marker {
+  content: "";
+}
+
+.step > summary::before {
+  content: "▸";
+  display: inline-block;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #3498db;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.step:hover > summary,
+.step:focus-within > summary {
+  background: #ebf5fb;
+}
+
+.step[open] > summary::before {
+  content: "▾";
 }
 
 .step h3 {
@@ -190,13 +229,8 @@
 
 .checklist-inline ul {
   list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.checklist-inline li {
-  padding: 0.5rem 0;
-  color: #495057;
+  padding: 2rem;
+  margin: 20rem;
 }
 
 .mailing-options {
@@ -492,7 +526,7 @@
 @media (max-width: 768px) {
   .get-started-page,
   .resources-page {
-    padding: 1rem 0.5rem;
+    padding: 1.25rem 1rem;
   }
 
   .page-header h1 {

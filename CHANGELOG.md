@@ -5,6 +5,24 @@ All notable changes to the Bring Back Snail Mail project will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2025-12-29
+
+### Added
+- Documentation: UI Pain Points framework (`uiPainPoints.md`) for tracking and prioritizing UI/UX issues by page
+  - Get Started page: 1 issue (clutter)
+  - Sign In page: 1 issue (404 error - P0)
+  - Home / Dashboard: 3 issues (redundant nav, constrained snail graphic, unlinked features)
+  - Community page: 1 issue (clutter and lack of inviting design - P1)
+  - Resources page: 1 issue (clutter and non-functional download buttons - P1)
+  - **Total: 7 logged issues across 5 pages**
+- Documentation: Sign In page section in UI Pain Points documenting critical 404 error
+- Documentation: Community page section in UI Pain Points documenting clutter and lack of inviting design
+- Documentation: Resources page section in UI Pain Points documenting clutter and non-functional buttons
+
+### Updated
+- Documentation: Home / Dashboard pain points expanded with 3 logged issues
+- Documentation: Get Started page pain point added to framework
+
 ## [0.1.3] - 2025-12-19
 
 ### Added

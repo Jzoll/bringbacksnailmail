@@ -1,3 +1,5 @@
+import "../styles/GetStarted.css";
+
 export default function GetStarted() {
   return (
     <div className="get-started-page">
@@ -35,8 +37,10 @@ export default function GetStarted() {
       </section>
 
       <section className="detailed-steps">
-        <div className="step">
-          <h3>Step 1: Write Your Letter</h3>
+        <details className="step">
+          <summary>
+            <h3>Step 1: Write Your Letter</h3>
+          </summary>
           <p>
             Start with a simple greeting and write from the heart. Don't worry
             about being perfect—the thought and effort matter most.
@@ -52,10 +56,12 @@ export default function GetStarted() {
           <a href="/inspiration" className="action-link">
             Need inspiration? Get a writing prompt →
           </a>
-        </div>
+        </details>
 
-        <div className="step">
-          <h3>Step 2: Address the Envelope</h3>
+        <details className="step">
+          <summary>
+            <h3>Step 2: Address the Envelope</h3>
+          </summary>
           <div className="addressing-diagram">
             <div className="envelope-example">
               <div className="return-address">
@@ -93,10 +99,12 @@ export default function GetStarted() {
               <li>Include full ZIP/postal codes</li>
             </ul>
           </div>
-        </div>
+        </details>
 
-        <div className="step">
-          <h3>Step 3: Add Postage</h3>
+        <details className="step">
+          <summary>
+            <h3>Step 3: Add Postage</h3>
+          </summary>
           <p>
             Purchase stamps from your local post office, online, or at many
             retail stores. The cost depends on the size, weight, and destination
@@ -122,26 +130,30 @@ export default function GetStarted() {
           <a href="/resources#postage" className="action-link">
             See detailed postage guidelines →
           </a>
-        </div>
+        </details>
 
-        <div className="step">
-          <h3>Step 4: Seal & Double-Check</h3>
+        <details className="step">
+          <summary>
+            <h3>Step 4: Seal & Double-Check</h3>
+          </summary>
           <p>
             Before sealing, make sure your letter is inside and everything is
             addressed correctly.
           </p>
           <div className="checklist-inline">
             <ul>
-              <li>✓ Letter is inside the envelope</li>
+              <li>Letter is inside the envelope</li>
               <li>✓ Recipient address is correct and complete</li>
               <li>✓ Return address is present</li>
               <li>✓ Stamp is affixed in the upper right</li>
             </ul>
           </div>
-        </div>
+        </details>
 
-        <div className="step">
-          <h3>Step 5: Mail It!</h3>
+        <details className="step">
+          <summary>
+            <h3>Step 5: Mail It!</h3>
+          </summary>
           <p>You have several options for sending your mail:</p>
           <div className="mailing-options">
             <div className="option">
@@ -166,7 +178,7 @@ export default function GetStarted() {
               </p>
             </div>
           </div>
-        </div>
+        </details>
       </section>
 
       <section className="next-steps">

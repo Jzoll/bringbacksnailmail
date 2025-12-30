@@ -1,6 +1,40 @@
 export default function Community() {
   return (
     <div className="community-page">
+      <section
+        className="community-hero"
+        style={{
+          textAlign: "center",
+          padding: "2rem",
+          marginBottom: "2rem",
+          background: "#fff",
+          border: "2px solid #dee2e6",
+          borderRadius: 12,
+        }}
+      >
+        <h1 style={{ marginBottom: "0.5rem" }}>
+          Join the Snail Mail Community
+        </h1>
+        <p className="subtitle" style={{ marginBottom: "1rem" }}>
+          A warm, welcoming space to share and celebrate physical
+          correspondence.
+        </p>
+        <div
+          style={{
+            display: "flex",
+            gap: "0.75rem",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <a href="/inspiration" className="btn btn-secondary">
+            Find Inspiration
+          </a>
+          <a href="/mailbox" className="btn btn-primary">
+            Archive Your Mail
+          </a>
+        </div>
+      </section>
       <header className="community-header">
         <h1>Community Wall</h1>
         <p className="subtitle">

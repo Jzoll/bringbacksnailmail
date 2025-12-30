@@ -141,22 +141,46 @@ Recipient Name`}</pre>
           <div className="template-card">
             <h3>Letter Template</h3>
             <p>Printable lined stationery with margins</p>
-            <button className="btn btn-secondary">Download PDF</button>
+            <a
+              className="btn btn-secondary disabled"
+              aria-disabled="true"
+              title="Coming soon"
+            >
+              Download PDF
+            </a>
           </div>
           <div className="template-card">
             <h3>Envelope Template</h3>
             <p>Practice addressing with this printable</p>
-            <button className="btn btn-secondary">Download PDF</button>
+            <a
+              className="btn btn-secondary disabled"
+              aria-disabled="true"
+              title="Coming soon"
+            >
+              Download PDF
+            </a>
           </div>
           <div className="template-card">
             <h3>Postcard Layout</h3>
             <p>Front and back postcard template</p>
-            <button className="btn btn-secondary">Download PDF</button>
+            <a
+              className="btn btn-secondary disabled"
+              aria-disabled="true"
+              title="Coming soon"
+            >
+              Download PDF
+            </a>
           </div>
           <div className="template-card">
             <h3>Example Letters</h3>
             <p>Sample friendly letter, thank-you note, etc.</p>
-            <button className="btn btn-secondary">View Examples</button>
+            <a
+              className="btn btn-secondary disabled"
+              aria-disabled="true"
+              title="Coming soon"
+            >
+              View Examples
+            </a>
           </div>
         </div>
       </section>

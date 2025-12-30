@@ -80,6 +80,13 @@ button {
   text-decoration: none;
 }
 
+/* Disabled buttons/links */
+.btn.disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;

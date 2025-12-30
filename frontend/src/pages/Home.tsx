@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Snail from "../components/Snail";
 
 export default function Home() {
@@ -28,21 +29,29 @@ export default function Home() {
       </section>
 
       <section className="features">
-        <div className="feature">
+        <Link
+          to="/get-started"
+          className="feature"
+          aria-label="Go to Get Started"
+        >
           <h2>📝 Learn the Basics</h2>
           <p>
             Step-by-step guides for addressing, stamping, and sending your first
             letter.
           </p>
-        </div>
-        <div className="feature">
+        </Link>
+        <Link
+          to="/inspiration"
+          className="feature"
+          aria-label="Go to Inspiration"
+        >
           <h2>✨ Get Inspired</h2>
           <p>Creative writing and drawing prompts to spark your next letter.</p>
-        </div>
-        <div className="feature">
+        </Link>
+        <Link to="/mailbox" className="feature" aria-label="Go to My Mailbox">
           <h2>📮 Archive Your Mail</h2>
           <p>Keep a private collection of sent and received correspondence.</p>
-        </div>
+        </Link>
       </section>
 
       <section className="about">

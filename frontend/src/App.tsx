@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Inspiration from "./pages/Inspiration";
 import MyMailbox from "./pages/MyMailbox";
 import Home from "./pages/Home";
@@ -7,14 +7,14 @@ import GetStarted from "./pages/GetStarted";
 import Resources from "./pages/Resources";
 import Community from "./pages/Community";
 import { isAuthenticated, logout } from "./services/authClient";
+import SignIn from "./pages/SignIn";
 import "./styles/App.css";
 
 export default function App() {
-  const [authenticated, setAuthenticated] = useState(isAuthenticated());
-
   const handleLogout = async () => {
     await logout();
-    setAuthenticated(false);
+    // Force a reload to reflect auth state changes in UI
+    window.location.href = "/";
   };
 
   return (
@@ -27,9 +27,6 @@ export default function App() {
             </Link>
             <ul className="nav-links">
               <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
                 <Link to="/get-started">Get Started</Link>
               </li>
               <li>
@@ -41,12 +38,12 @@ export default function App() {
               <li>
                 <Link to="/community">Community</Link>
               </li>
-              {authenticated && (
+              {isAuthenticated() && (
                 <li>
                   <Link to="/mailbox">My Mailbox</Link>
                 </li>
               )}
-              {authenticated ? (
+              {isAuthenticated() ? (
                 <li>
                   <button onClick={handleLogout} className="nav-button">
                     Sign Out
@@ -72,8 +69,11 @@ export default function App() {
             <Route path="/community" element={<Community />} />
             <Route
               path="/mailbox"
-              element={authenticated ? <MyMailbox /> : <Navigate to="/login" />}
+              element={
+                isAuthenticated() ? <MyMailbox /> : <Navigate to="/login" />
+              }
             />
+            <Route path="/login" element={<SignIn />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

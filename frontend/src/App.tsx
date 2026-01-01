@@ -13,10 +13,12 @@ import GettingStartedResources from "./pages/resources/GettingStartedResources";
 import DesignAndCraftResources from "./pages/resources/DesignAndCraftResources";
 import SendingInternationalResources from "./pages/resources/SendingInternationalResources";
 import ArchivingAndPreservationResources from "./pages/resources/ArchivingAndPreservationResources";
+import FamousLetters from "./pages/inspiration/FamousLetters";
 import "./styles/App.css";
 
 export default function App() {
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [inspirationOpen, setInspirationOpen] = useState(false);
   const handleLogout = async () => {
     await logout();
     // Force a reload to reflect auth state changes in UI
@@ -35,8 +37,40 @@ export default function App() {
               <li>
                 <Link to="/get-started">Get Started</Link>
               </li>
-              <li>
-                <Link to="/inspiration">Inspiration</Link>
+              <li
+                className="dropdown"
+                onMouseLeave={() => setInspirationOpen(false)}
+              >
+                <div className="dropdown-header">
+                  <Link
+                    to="/inspiration"
+                    className="dropdown-root"
+                    onClick={() => setInspirationOpen(false)}
+                  >
+                    Inspiration
+                  </Link>
+                  <button
+                    className="dropdown-toggle"
+                    aria-haspopup="true"
+                    aria-expanded={inspirationOpen}
+                    aria-label="Toggle Inspiration menu"
+                    onClick={() => setInspirationOpen(!inspirationOpen)}
+                  >
+                    ▾
+                  </button>
+                </div>
+                <ul
+                  className={`dropdown-menu ${inspirationOpen ? "open" : ""}`}
+                >
+                  <li>
+                    <Link
+                      to="/inspiration/famous-letters"
+                      onClick={() => setInspirationOpen(false)}
+                    >
+                      Famous Letters
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li
                 className="dropdown"
@@ -144,6 +178,10 @@ export default function App() {
                 element={<ArchivingAndPreservationResources />}
               />
             </Route>
+            <Route
+              path="/inspiration/famous-letters"
+              element={<FamousLetters />}
+            />
             <Route path="/community" element={<Community />} />
             <Route
               path="/mailbox"

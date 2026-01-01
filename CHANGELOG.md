@@ -8,6 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased] - 2026-01-01
 
 ### Added
+- Frontend: Inspiration child page “Famous Letters” available at `/inspiration/famous-letters`
+- Frontend: Resources child pages added for task-based organization
+  - Getting Started (basics, addressing, starter kits)
+  - Design & Craft (materials, decorative touches, durability)
+  - Sending International (addressing formats, customs, delivery windows)
+  - Archiving & Preservation (storage, digitization, handling)
+
+### Fixed
+- Frontend: Cleaned unused imports in `App.tsx` and `ResourcesMain.tsx`
+
+### Changed
+- Frontend: Resources navigation now includes an accessible dropdown exposing child pages
+- Frontend: Resources refactored to nested routes; Postal Guidelines remain on the main Resources index
+- Frontend: Inspiration navigation now includes a dropdown exposing “Famous Letters”
+- Frontend: Famous Letters refactored under Inspiration as a standalone page (removed nested Outlet render)
+
+## [Unreleased] - 2025-12-29
+
+### Added
 - Documentation: UI Pain Points framework (`uiPainPoints.md`) for tracking and prioritizing UI/UX issues by page
   - Get Started page: 1 issue (clutter)
   - Sign In page: 1 issue (404 error - P0)
@@ -18,11 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation: Sign In page section in UI Pain Points documenting critical 404 error
 - Documentation: Community page section in UI Pain Points documenting clutter and lack of inviting design
 - Documentation: Resources page section in UI Pain Points documenting clutter and non-functional buttons
-- Frontend: Resources child pages added for task-based organization
-  - Getting Started (basics, addressing, starter kits)
-  - Design & Craft (materials, decorative touches, durability)
-  - Sending International (addressing formats, customs, delivery windows)
-  - Archiving & Preservation (storage, digitization, handling)
+
 
 ### Updated
 - Documentation: Home / Dashboard pain points expanded with 3 logged issues
@@ -32,7 +47,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Frontend: Sign In page 404 resolved by adding `/login` route and `SignIn` page wired to `authClient.login()`
 - Frontend: Resources page non-functional buttons replaced with disabled "Coming soon" links to avoid broken actions
 - Frontend: Home page feature cards now link to destination pages (Get Started, Inspiration, Mailbox)
- - Frontend: Cleaned unused imports in `App.tsx` and `ResourcesMain.tsx`
 
 ### Changed
 - Frontend: Removed redundant "Home" nav item; brand logo routes to home
@@ -40,8 +54,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Frontend: Get Started page decluttered using expandable `details/summary` for steps
 - Frontend: Community page made more inviting with welcoming hero section and clear CTAs
 - Frontend: Get Started page spacing increased (left margin 40px; wider horizontal padding) to avoid edge crowding
-- Frontend: Resources navigation now includes an accessible dropdown exposing child pages
-- Frontend: Resources refactored to nested routes; Postal Guidelines remain on the main Resources index
 
 ## [0.1.3] - 2025-12-19
 

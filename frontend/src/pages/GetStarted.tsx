@@ -1,6 +1,26 @@
 import "../styles/GetStarted.css";
 
+import { useEffect, useState } from "react";
 export default function GetStarted() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    const reduce = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduce) {
+      window.scrollTo(0, 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
   return (
     <div className="get-started-page">
       <header className="page-header">
@@ -127,7 +147,7 @@ export default function GetStarted() {
               </li>
             </ul>
           </div>
-          <a href="/resources#postage" className="action-link">
+          <a href="/resources#guidelines" className="action-link">
             See detailed postage guidelines →
           </a>
         </details>
@@ -140,12 +160,13 @@ export default function GetStarted() {
             Before sealing, make sure your letter is inside and everything is
             addressed correctly.
           </p>
-          <div className="checklist-inline">
+          <div className="tips">
+            <h4>Double-Check List:</h4>
             <ul>
               <li>Letter is inside the envelope</li>
-              <li>✓ Recipient address is correct and complete</li>
-              <li>✓ Return address is present</li>
-              <li>✓ Stamp is affixed in the upper right</li>
+              <li>Recipient address is correct and complete</li>
+              <li>Return address is present</li>
+              <li>Stamp is affixed in the upper right</li>
             </ul>
           </div>
         </details>
@@ -196,6 +217,16 @@ export default function GetStarted() {
           </a>
         </div>
       </section>
+
+      {showScrollTop && (
+        <button
+          className="scroll-to-top"
+          aria-label="Scroll to top"
+          onClick={scrollToTop}
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }

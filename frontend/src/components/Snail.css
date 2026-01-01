@@ -1,7 +1,7 @@
 .snail-container {
   position: relative;
   display: inline-block;
-  padding: 1rem;
+  padding: var(--space-2);
 }
 
 .snail-svg {
@@ -88,16 +88,16 @@
 /* Speed control buttons */
 .speed-controls {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
   justify-content: center;
 }
 
 .speed-btn {
-  background: #f8f9fa;
-  border: 2px solid #dee2e6;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-1);
   font-size: 0.875rem;
   font-weight: 600;
   color: #495057;
@@ -112,26 +112,26 @@
 }
 
 .speed-btn:focus {
-  outline: 2px solid #3498db;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .speed-btn.active {
-  background: #3498db;
-  border-color: #2980b9;
-  color: white;
+  background: var(--color-primary);
+  border-color: var(--color-primary-dark);
+  color: var(--color-surface);
 }
 
 .speed-btn.active:hover {
-  background: #2980b9;
+  background: var(--color-primary-dark);
 }
 
 /* Reduced motion notice */
 .reduced-motion-notice {
   font-size: 0.875rem;
-  color: #6c757d;
+  color: var(--color-muted);
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: var(--space-1);
   font-style: italic;
 }
 

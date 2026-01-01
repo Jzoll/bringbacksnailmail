@@ -1,4 +1,27 @@
+import "../styles/Community.css";
+import { useEffect, useState } from "react";
+
 export default function Community() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    const reduce = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduce) {
+      window.scrollTo(0, 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="community-page">
       <section
@@ -132,6 +155,16 @@ export default function Community() {
           </p>
         </div>
       </section>
+
+      {showScrollTop && (
+        <button
+          className="scroll-to-top"
+          aria-label="Scroll to top"
+          onClick={scrollToTop}
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }

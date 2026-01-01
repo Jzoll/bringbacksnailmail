@@ -33,7 +33,7 @@ export default function Inspiration() {
   return (
     <div className="inspiration-page">
       <header className="inspiration-header">
-        <h1>Inspiration</h1>
+        <h1>Inspiration Station</h1>
         <p>Get creative writing or drawing prompts for your next letter.</p>
       </header>
 

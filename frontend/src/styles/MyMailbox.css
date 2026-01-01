@@ -14,12 +14,12 @@
 .mailbox-header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 .mailbox-header p {
   font-size: 1.125rem;
-  color: #6c757d;
+  color: var(--color-muted);
 }
 
 .mailbox-tabs {
@@ -27,7 +27,7 @@
   gap: 1rem;
   justify-content: center;
   margin-bottom: 2rem;
-  border-bottom: 2px solid #dee2e6;
+  border-bottom: 2px solid var(--color-border);
 }
 
 .mailbox-tabs button {
@@ -44,17 +44,17 @@
 }
 
 .mailbox-tabs button:hover {
-  color: #3498db;
+  color: var(--color-primary);
 }
 
 .mailbox-tabs button:focus {
-  outline: 3px solid #3498db;
+  outline: 3px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .mailbox-tabs button.active {
-  color: #3498db;
-  border-bottom-color: #3498db;
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -66,16 +66,16 @@
 }
 
 .mail-card {
-  border: 2px solid #dee2e6;
-  border-radius: 8px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-2);
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
-  background: white;
+  background: var(--color-surface);
 }
 
 .mail-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-1);
 }
 
 .mail-image {
@@ -83,7 +83,7 @@
   height: 200px;
   overflow: hidden;
   cursor: pointer;
-  background: #f8f9fa;
+  background: var(--color-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,7 +99,7 @@
 .image-error {
   padding: 2rem;
   text-align: center;
-  color: #6c757d;
+  color: var(--color-muted);
 }
 
 .mail-info {
@@ -109,20 +109,20 @@
 .mail-info h3 {
   font-size: 1.125rem;
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 .mail-date {
   font-size: 0.875rem;
-  color: #6c757d;
+  color: var(--color-muted);
   margin: 0 0 1rem 0;
 }
 
 .delete-button {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  background: #e74c3c;
-  color: white;
+  background: var(--color-danger);
+  color: var(--color-surface);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -130,11 +130,11 @@
 }
 
 .delete-button:hover {
-  background: #c0392b;
+  background: var(--color-danger-dark);
 }
 
 .delete-button:focus {
-  outline: 3px solid #e74c3c;
+  outline: 3px solid var(--color-danger);
   outline-offset: 2px;
 }
 
@@ -146,16 +146,16 @@
 }
 
 .error {
-  color: #e74c3c;
+  color: var(--color-danger);
 }
 
 .error button {
   margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: #e74c3c;
-  color: white;
+  padding: var(--space-3) var(--space-2);
+  background: var(--color-danger);
+  color: var(--color-surface);
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-2);
   cursor: pointer;
   min-height: 44px;
 }
@@ -213,7 +213,7 @@
 }
 
 .modal-close:focus {
-  outline: 3px solid #3498db;
+  outline: 3px solid var(--color-primary);
 }
 
 .modal-image {
@@ -238,7 +238,7 @@
 
 .modal-details h2 {
   margin: 0 0 1rem 0;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 .modal-details .mail-notes {

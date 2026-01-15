@@ -4,6 +4,19 @@ All notable changes to the Bring Back Snail Mail project will be documented in t
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [Unreleased] - 2026-01-14
+
+### Added
+- Frontend: Created `.env.local` with `VITE_GOOGLE_CLIENT_ID` for Google OAuth 2.0 integration
+- Frontend: Google OAuth infrastructure ready in `authClient.ts` with `googleLogin()` function
+
+### Fixed
+- Frontend: Resolved 2 moderate severity esbuild vulnerabilities (GHSA-67mh-4wv8-2f99) via `npm audit fix --force`
+  - Updated Vite to 7.3.1 (breaking change)
+  - Updated esbuild to patched version
+
+### Security
+- Added `.env.local` to `.gitignore` to prevent committing sensitive OAuth credentials
 
 ## [Unreleased] - 2026-01-01
 
@@ -100,6 +113,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation: Updated frontend/README.md with architecture details and feature completion status
 - Documentation: Accessibility audit checklist (`specs/1-snailmail-app-v1/checklists/accessibility.md`) with WCAG AA compliance tracking
 - Documentation: Performance validation checklist (`specs/1-snailmail-app-v1/checklists/performance.md`) with benchmarking plan and optimization strategies
+
+## [0.1.0] - 2026-01-14
+### Added
+
 
 ## [0.1.0] - 2025-12-09
 

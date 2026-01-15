@@ -107,3 +107,23 @@ export function storeAuth(authResponse: AuthResponse): void {
 export function isAuthenticated(): boolean {
   return getToken() !== null;
 }
+
+/**
+ * Sign in with Google OAuth
+ */
+export async function googleLogin(idToken: string): Promise<AuthResponse> {
+  const response = await fetch("/auth/google", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id_token: idToken }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.detail || "Google login failed");
+  }
+
+  return response.json();
+}

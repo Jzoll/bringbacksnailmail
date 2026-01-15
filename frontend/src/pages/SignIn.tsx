@@ -1,11 +1,67 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { login, storeAuth } from "../services/authClient";
+
+declare global {
+  interface Window {
+    google: any;
+  }
+}
 
 export default function SignIn() {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    // Initialize Google Sign-In button
+    const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
+    if (window.google && googleClientId) {
+      window.google.accounts.id.initialize({
+        client_id: googleClientId,
+        callback: handleGoogleSignIn,
+      });
+      window.google.accounts.id.renderButton(
+        document.getElementById("google-signin-button"),
+        {
+          theme: "outline",
+          size: "large",
+          width: "100%",
+        }
+      );
+    }
+  }, []);
+
+  const handleGoogleSignIn = async (response: any) => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      // Send the ID token to your backend
+      const result = await fetch("/auth/google", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id_token: response.credential }),
+      });
+
+      if (!result.ok) {
+        const errorData = await result.json();
+        throw new Error(errorData.detail || "Google sign in failed");
+      }
+
+      const auth = await result.json();
+      storeAuth(auth);
+      // Navigate to mailbox; reload to refresh nav state
+      window.location.href = "/mailbox";
+    } catch (err: any) {
+      setError(err?.message || "Google sign in failed");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -105,6 +161,28 @@ export default function SignIn() {
           {loading ? "Signing in…" : "Sign In"}
         </button>
       </form>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          margin: "1.5rem 0",
+          gap: "1rem",
+        }}
+      >
+        <div style={{ flex: 1, height: 1, background: "#dee2e6" }}></div>
+        <span style={{ color: "#6c757d" }}>or</span>
+        <div style={{ flex: 1, height: 1, background: "#dee2e6" }}></div>
+      </div>
+
+      <div
+        id="google-signin-button"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "1.5rem",
+        }}
+      ></div>
     </div>
   );
 }

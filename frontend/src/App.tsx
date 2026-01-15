@@ -8,6 +8,7 @@ import Resources from "./pages/Resources";
 import Community from "./pages/Community";
 import { isAuthenticated, logout } from "./services/authClient";
 import SignIn from "./pages/SignIn";
+import OAuthCallback from "./pages/OAuthCallback";
 import ResourcesMain from "./pages/resources/ResourcesMain";
 import GettingStartedResources from "./pages/resources/GettingStartedResources";
 import DesignAndCraftResources from "./pages/resources/DesignAndCraftResources";
@@ -190,6 +191,7 @@ export default function App() {
               }
             />
             <Route path="/login" element={<SignIn />} />
+            <Route path="/auth/callback" element={<OAuthCallback />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

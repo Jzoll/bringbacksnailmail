@@ -1,0 +1,193 @@
+graph TD
+    A[Start] --> B{User Choice}
+    B -->|Browse as Guest| C[Home/Landing Page]
+    B -->|Sign In/Sign Up| D[Authentication]
+    
+    C --> E{Guest Action}
+    E -->|Get Inspiration| F{Prompt Type?}
+    E -->|Browse Community| G[Public Gallery]
+    E -->|Learn More| H[Resources/About Pages]
+    E -->|Sign Up| D
+    
+    F -->|Writing| I[Generate Writing Prompt]
+    F -->|Drawing| J[Generate Drawing Prompt]
+    
+    I --> K[Display Writing Prompt]
+    K --> L{Generate Another?}
+    L -->|Yes| F
+    L -->|No| C
+    
+    J --> M[Display Drawing Prompt]  
+    M --> N{Generate Another?}
+    N -->|Yes| F
+    N -->|No| C
+    
+    G --> O[Browse Public Letters]
+    O --> P{Letter Action}
+    P -->|View Details| Q[Letter Detail View]
+    P -->|Filter/Search| R[Apply Filters]
+    P -->|Sign Up to Like/Comment| D
+    P -->|Back| C
+    
+    Q --> S{Guest Actions}
+    S -->|Sign Up to Interact| D
+    S -->|Back to Gallery| O
+    
+    R --> O
+    
+    H --> T{Continue as Guest?}
+    T -->|Yes| C
+    T -->|No| D
+    
+    D --> U[Create Account/Sign In]
+    U --> V[Dashboard/Home]
+    
+    V --> W{User Action}
+    W -->|Get Inspiration| F
+    W -->|Upload Letter| X[Upload Content]
+    W -->|My Gallery| Y[Personal Gallery]
+    W -->|Community| Z[Community Hub]
+    W -->|Settings| AA[User Settings]
+    
+    X --> BB{File Valid?}
+    BB -->|No| CC[Error: Invalid Format]
+    CC --> DD[Show Error Message]
+    DD --> X
+    BB -->|Yes| EE[Select Letter Type<br/>Sent or Received]
+    EE --> FF[Add Metadata]
+    FF --> GG[Set Privacy Level<br/>Private/Friends/Public]
+    GG --> HH[Add Notes Optional]
+    HH --> II[Preview Letter]
+    II --> JJ{Confirm Save?}
+    JJ -->|Cancel| V
+    JJ -->|Save| KK[Save Letter to Gallery]
+    KK --> LL[Show Success Message]
+    LL --> MM{Upload More?}
+    MM -->|Yes| X
+    MM -->|No| Y
+    
+    Y --> NN{Gallery Empty?}
+    NN -->|Yes| OO[Empty State<br/>Upload Your First Letter]
+    OO --> X
+    NN -->|No| PP[Display Personal Letters]
+    
+    PP --> QQ[Search & Filter Bar]
+    QQ --> RR{Apply Filters}
+    RR -->|By Type/Date/Tags| SS[Filtered View]
+    RR -->|Clear Filters| PP
+    
+    SS --> TT[Letter List with Pagination]
+    TT --> UU{Letter Action}
+    
+    UU -->|Quick View| VV[Preview Popup]
+    UU -->|Edit| WW[Edit Letter Details]
+    UU -->|Delete| XX[Confirm Deletion]
+    UU -->|Batch Select| YY[Select Multiple]
+    
+    VV --> ZZ{Take Action?}
+    ZZ -->|Edit| WW
+    ZZ -->|Delete| XX
+    ZZ -->|Close| TT
+    
+    WW --> AAA[Save Changes]
+    AAA --> BBB[Show Confirmation]
+    BBB --> TT
+    
+    XX --> CCC{Confirm Delete?}
+    CCC -->|Cancel| TT
+    CCC -->|Delete| DDD[Remove Letter]
+    DDD --> EEE[Success Message]
+    EEE --> TT
+    
+    YY --> FFF{Batch Action}
+    FFF -->|Delete All| GGG[Confirm Batch Delete]
+    FFF -->|Change Privacy| HHH[Batch Privacy Update]
+    
+    GGG --> III{Confirm?}
+    III -->|Cancel| TT
+    III -->|Delete| JJJ[Remove Selected]
+    JJJ --> KKK[Success Message]
+    KKK --> TT
+    
+    HHH --> LLL[Select New Privacy Level]
+    LLL --> MMM[Apply to Selected]
+    MMM --> NNN[Success Message]
+    NNN --> TT
+    
+    Z --> OOO[Community Gallery]
+    OOO --> PPP{Community Action}
+    PPP -->|Browse All| QQQ[Public Letters Feed]
+    PPP -->|Trending| RRR[Trending Letters]
+    PPP -->|By Tag| SSS[Tag-based Browse]
+    PPP -->|Search| TTT[Search Community]
+    
+    QQQ --> UUU[Letter Grid with Pagination]
+    UUU --> VVV{Letter Interaction}
+    VVV -->|View| WWW[Community Letter Detail]
+    VVV -->|Like| XXX[Toggle Like]
+    VVV -->|Filter| YYY[Apply Community Filters]
+    
+    XXX --> UUU
+    YYY --> UUU
+    
+    WWW --> ZZZ{Interaction Options}
+    ZZZ -->|Like/Unlike| AAAA[Toggle Like Action]
+    ZZZ -->|Comment| BBBB[Add Comment]
+    ZZZ -->|Share| CCCC[Share Letter]
+    ZZZ -->|Report| DDDD[Report Content]
+    ZZZ -->|Back| UUU
+    
+    AAAA --> WWW
+    BBBB --> EEEE[Post Comment]
+    EEEE --> FFFF[Show Comment]
+    FFFF --> WWW
+    
+    CCCC --> GGGG[Copy Link/Share Options]
+    GGGG --> WWW
+    
+    DDDD --> HHHH[Submit Report]
+    HHHH --> IIII[Report Confirmation]
+    IIII --> WWW
+    
+    RRR --> UUU
+    SSS --> UUU  
+    TTT --> UUU
+    
+    AA --> JJJJ[User Preferences]
+    JJJJ --> KKKK{Settings Action}
+    KKKK -->|Privacy Defaults| LLLL[Set Default Privacy Level]
+    KKKK -->|Notification Preferences| MMMM[Notification Settings]
+    KKKK -->|Account Settings| NNNN[Account Management]
+    KKKK -->|Back| V
+    
+    LLLL --> OOOO[Save Privacy Settings]
+    OOOO --> PPPP[Confirmation]
+    PPPP --> JJJJ
+    
+    MMMM --> QQQQ[Save Notification Settings]
+    QQQQ --> RRRR[Confirmation]
+    RRRR --> JJJJ
+    
+    NNNN --> SSSS[Account Options]
+    SSSS --> TTTT{Account Action}
+    TTTT -->|Change Password| UUUU[Password Update]
+    TTTT -->|Export Data| VVVV[Data Export]
+    TTTT -->|Delete Account| WWWW[Account Deletion]
+    TTTT -->|Back| JJJJ
+    
+    UUUU --> XXXX[Save Password]
+    XXXX --> YYYY[Success Message]
+    YYYY --> SSSS
+    
+    VVVV --> ZZZZ[Prepare Export]
+    ZZZZ --> AAAAA[Download Data]
+    AAAAA --> SSSS
+    
+    WWWW --> BBBBB[Confirm Account Deletion]
+    BBBBB --> CCCCC{Confirm?}
+    CCCCC -->|Cancel| SSSS
+    CCCCC -->|Delete| DDDDD[Account Removed]
+    DDDDD --> EEEEE[Logout/End]
+    
+    V --> FFFFF[Logout]
+    FFFFF --> EEEEE

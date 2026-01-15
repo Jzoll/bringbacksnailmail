@@ -1,0 +1,141 @@
+graph TB
+    %% External Services
+    subgraph "External Services"
+        GOOGLE[Google OAuth 2.0<br/>Identity Provider]
+        EMAIL[Email Service<br/>SMTP/SendGrid]
+        CDN[CDN/Static Assets<br/>Images, CSS, JS]
+    end
+    
+    %% Frontend Layer
+    subgraph "Frontend Layer"
+        subgraph "React/Vite App (Port 5173)"
+            ROUTER[React Router<br/>Client-side Routing]
+            AUTH_CLIENT[Auth Client<br/>JWT Management]
+            API_CLIENT[API Clients<br/>HTTP Requests]
+            UPLOAD[File Upload<br/>Multipart Forms]
+            UI[UI Components<br/>Pages & Components]
+        end
+    end
+    
+    %% Backend Layer
+    subgraph "Backend Layer"
+        subgraph "FastAPI Server (Port 8000)"
+            ROUTES[API Routes<br/>/auth, /letters, /prompts]
+            AUTH_MW[Auth Middleware<br/>JWT Validation]
+            RATE_LIMIT[Rate Limiting<br/>5/min auth, 10/min uploads]
+            FILE_MW[File Middleware<br/>Upload Validation]
+            CORS_MW[CORS Middleware<br/>Cross-Origin Support]
+        end
+        
+        subgraph "Services Layer"
+            AUTH_SVC[Auth Service<br/>Login, Registration]
+            LETTER_SVC[Letter Service<br/>CRUD Operations]
+            PROMPT_SVC[Prompt Service<br/>Random Generation]
+            FILE_SVC[File Service<br/>Storage Management]
+            SOCIAL_SVC[Social Service<br/>Likes, Comments, Friends]
+            NOTIF_SVC[Notification Service<br/>Real-time Updates]
+        end
+        
+        subgraph "Data Access Layer"
+            USER_REPO[User Repository<br/>SQLAlchemy ORM]
+            LETTER_REPO[Letter Repository<br/>SQLAlchemy ORM]
+            SOCIAL_REPO[Social Repository<br/>SQLAlchemy ORM]
+            CACHE[Cache Layer<br/>Redis/Memory]
+        end
+    end
+    
+    %% Data Layer
+    subgraph "Data Layer"
+        subgraph "PostgreSQL Database"
+            USER_TBL[(Users Table<br/>Authentication)]
+            LETTER_TBL[(Letters Table<br/>Content)]
+            SOCIAL_TBL[(Social Tables<br/>Likes, Comments, Friends)]
+            SESSION_TBL[(Sessions Table<br/>JWT Tokens)]
+        end
+        
+        subgraph "File Storage"
+            LOCAL_FS[Local Filesystem<br/>./uploads/images]
+            CLOUD_FS[Cloud Storage<br/>S3/GCS Future]
+        end
+    end
+    
+    %% Infrastructure Layer
+    subgraph "Infrastructure"
+        NGINX[Nginx Reverse Proxy<br/>Production]
+        LOGS[Logging System<br/>Structured JSON]
+        MONITOR[Monitoring<br/>Health Checks]
+        BACKUP[Database Backup<br/>Automated]
+    end
+    
+    %% Connection Flows
+    
+    %% Frontend to Backend
+    UI --> API_CLIENT
+    AUTH_CLIENT --> API_CLIENT
+    UPLOAD --> API_CLIENT
+    API_CLIENT -.->|HTTP/HTTPS| CORS_MW
+    
+    %% External OAuth Flow
+    AUTH_CLIENT -.->|OAuth Redirect| GOOGLE
+    GOOGLE -.->|ID Token| AUTH_CLIENT
+    AUTH_CLIENT -.->|ID Token| AUTH_SVC
+    
+    %% Backend API Flow
+    CORS_MW --> RATE_LIMIT
+    RATE_LIMIT --> AUTH_MW
+    AUTH_MW --> FILE_MW
+    FILE_MW --> ROUTES
+    
+    %% Routes to Services
+    ROUTES --> AUTH_SVC
+    ROUTES --> LETTER_SVC
+    ROUTES --> PROMPT_SVC
+    ROUTES --> SOCIAL_SVC
+    ROUTES --> NOTIF_SVC
+    
+    %% Services to Repositories
+    AUTH_SVC --> USER_REPO
+    AUTH_SVC --> SESSION_TBL
+    LETTER_SVC --> LETTER_REPO
+    LETTER_SVC --> FILE_SVC
+    SOCIAL_SVC --> SOCIAL_REPO
+    PROMPT_SVC --> LETTER_REPO
+    
+    %% File Operations
+    FILE_SVC --> LOCAL_FS
+    FILE_SVC -.->|Future| CLOUD_FS
+    UI -.->|Image Requests| FILE_SVC
+    
+    %% Repository to Database
+    USER_REPO --> USER_TBL
+    LETTER_REPO --> LETTER_TBL
+    SOCIAL_REPO --> SOCIAL_TBL
+    
+    %% Caching
+    USER_REPO -.->|Cache| CACHE
+    LETTER_REPO -.->|Cache| CACHE
+    
+    %% External Notifications
+    NOTIF_SVC -.->|Email Notifications| EMAIL
+    
+    %% Static Assets
+    CDN -.->|CSS, JS, Images| UI
+    
+    %% Infrastructure
+    NGINX -.->|Production Proxy| ROUTES
+    ROUTES --> LOGS
+    ROUTES --> MONITOR
+    USER_TBL -.->|Scheduled| BACKUP
+    
+    %% Styling
+    classDef frontend fill:#e1f5fe
+    classDef backend fill:#f3e5f5
+    classDef data fill:#e8f5e8
+    classDef external fill:#fff3e0
+    classDef infra fill:#fce4ec
+    
+    class UI,ROUTER,AUTH_CLIENT,API_CLIENT,UPLOAD frontend
+    class ROUTES,AUTH_MW,RATE_LIMIT,FILE_MW,CORS_MW,AUTH_SVC,LETTER_SVC,PROMPT_SVC,FILE_SVC,SOCIAL_SVC,NOTIF_SVC,USER_REPO,LETTER_REPO,SOCIAL_REPO,CACHE backend
+    class USER_TBL,LETTER_TBL,SOCIAL_TBL,SESSION_TBL,LOCAL_FS,CLOUD_FS data
+    class GOOGLE,EMAIL,CDN external
+    class NGINX,LOGS,MONITOR,BACKUP infra

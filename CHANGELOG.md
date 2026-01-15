@@ -4,11 +4,32 @@ All notable changes to the Bring Back Snail Mail project will be documented in t
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-## [Unreleased] - 2026-01-14
+## [Unreleased] - 2026-01-15
 
 ### Added
-- Frontend: Created `.env.local` with `VITE_GOOGLE_CLIENT_ID` for Google OAuth 2.0 integration
-- Frontend: Google OAuth infrastructure ready in `authClient.ts` with `googleLogin()` function
+- Documentation: System architecture diagram (`diagrams/system architecture 0-2026-01-15-222652.mmd`) with backend/frontend/database components
+- Documentation: User flow diagrams for authentication and core user journeys
+- Documentation: Enhanced database schema diagrams with comprehensive entity relationships
+- Backend: Expanded database models with UUID primary keys and comprehensive social features
+  - Enhanced User model with Google OAuth support, full name, email verification, and activity tracking
+  - New UserSettings model for user preferences and notification controls
+  - Enhanced Letter model (formerly ArchivedMail) with privacy levels, metadata, and engagement tracking
+  - New Tag and LetterTag models for content categorization
+  - New Comment model with hierarchical replies and moderation support
+  - New Like model for letter engagement
+  - New Friendship model for user connections and friend requests
+  - New Report model for content moderation
+  - New Notification model for user alerts and updates
+  - New Session model for enhanced session management
+- Frontend: Complete Google OAuth 2.0 integration with both implicit flow and authorization code flow support
+- Frontend: `OAuthCallback.tsx` page for processing OAuth authorization responses and token exchange
+- Frontend: Enhanced `SignIn.tsx` with Google Sign-In button and dual authentication methods
+
+### Updated
+- Backend: Migrated from integer to UUID primary keys across all models for better scalability
+- Backend: Enhanced Prompt model with title, description, and usage tracking
+- Frontend: `App.tsx` with OAuth callback route configuration
+- Frontend: `index.html` with Google Identity Services script integration
 
 ### Fixed
 - Frontend: Resolved 2 moderate severity esbuild vulnerabilities (GHSA-67mh-4wv8-2f99) via `npm audit fix --force`
@@ -17,6 +38,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 - Added `.env.local` to `.gitignore` to prevent committing sensitive OAuth credentials
+- Enhanced session management with device tracking and IP logging
+
+## [Unreleased] - 2026-01-14
+
+### Added
+- Frontend: Created `.env.local` with `VITE_GOOGLE_CLIENT_ID` for Google OAuth 2.0 integration
+- Backend: OAuth infrastructure foundation in authClient service
+
+### Security
+- Initial OAuth client credentials management setup
 
 ## [Unreleased] - 2026-01-01
 

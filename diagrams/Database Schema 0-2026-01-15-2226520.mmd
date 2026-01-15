@@ -1,0 +1,164 @@
+erDiagram
+    USERS ||--o{ LETTERS : creates
+    USERS ||--o{ COMMENTS : writes
+    USERS ||--o{ LIKES : gives
+    USERS ||--o{ REPORTS : submits
+    USERS ||--o{ FRIENDSHIPS : initiates
+    USERS ||--o{ NOTIFICATIONS : receives
+    USERS ||--|| USER_SETTINGS : has
+    
+    LETTERS ||--o{ COMMENTS : receives
+    LETTERS ||--o{ LIKES : receives
+    LETTERS ||--o{ REPORTS : receives
+    LETTERS ||--o{ LETTER_TAGS : has
+    LETTERS }|--|| PROMPTS : inspired_by
+    
+    TAGS ||--o{ LETTER_TAGS : categorizes
+    
+    USERS {
+        uuid id PK
+        string email UK
+        string username UK
+        string password_hash
+        string full_name
+        string google_id UK "nullable"
+        timestamp created_at
+        timestamp updated_at
+        timestamp last_login
+        boolean is_active
+        boolean email_verified
+    }
+    
+    USER_SETTINGS {
+        uuid id PK
+        uuid user_id FK
+        string default_privacy_level "private|friends|public"
+        boolean email_notifications
+        boolean like_notifications
+        boolean comment_notifications
+        boolean friend_request_notifications
+        string timezone
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    LETTERS {
+        uuid id PK
+        uuid user_id FK
+        uuid prompt_id FK "nullable"
+        string title
+        text description "nullable"
+        string file_path
+        string file_type "image/jpeg|image/png"
+        integer file_size
+        string letter_type "sent|received"
+        string privacy_level "private|friends|public"
+        date letter_date
+        string recipient_sender "nullable"
+        string location "nullable"
+        text notes "nullable"
+        integer likes_count
+        integer comments_count
+        timestamp created_at
+        timestamp updated_at
+        boolean is_deleted
+        timestamp deleted_at "nullable"
+    }
+    
+    TAGS {
+        uuid id PK
+        string name UK
+        string slug UK
+        text description "nullable"
+        integer usage_count
+        timestamp created_at
+    }
+    
+    LETTER_TAGS {
+        uuid id PK
+        uuid letter_id FK
+        uuid tag_id FK
+        timestamp created_at
+    }
+    
+    PROMPTS {
+        uuid id PK
+        string type "writing|drawing"
+        text content
+        string title "nullable"
+        text description "nullable"
+        boolean is_active
+        integer usage_count
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    COMMENTS {
+        uuid id PK
+        uuid letter_id FK
+        uuid user_id FK
+        uuid parent_id FK "nullable - for replies"
+        text content
+        boolean is_edited
+        timestamp created_at
+        timestamp updated_at
+        boolean is_deleted
+        timestamp deleted_at "nullable"
+    }
+    
+    LIKES {
+        uuid id PK
+        uuid letter_id FK
+        uuid user_id FK
+        timestamp created_at
+    }
+    
+    FRIENDSHIPS {
+        uuid id PK
+        uuid requester_id FK
+        uuid addressee_id FK
+        string status "pending|accepted|blocked"
+        timestamp requested_at
+        timestamp responded_at "nullable"
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    REPORTS {
+        uuid id PK
+        uuid letter_id FK
+        uuid reporter_id FK
+        string reason "inappropriate|spam|harassment|copyright|other"
+        text description "nullable"
+        string status "pending|reviewing|resolved|dismissed"
+        uuid reviewed_by FK "nullable - admin user"
+        timestamp reviewed_at "nullable"
+        text admin_notes "nullable"
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    NOTIFICATIONS {
+        uuid id PK
+        uuid user_id FK
+        string type "like|comment|friend_request|friend_accept|report_update"
+        string title
+        text message
+        json data "additional context data"
+        uuid related_id "nullable - letter_id, comment_id, etc"
+        boolean is_read
+        timestamp read_at "nullable"
+        timestamp created_at
+        timestamp expires_at "nullable"
+    }
+    
+    SESSIONS {
+        uuid id PK
+        uuid user_id FK
+        string session_token UK
+        string device_info "nullable"
+        string ip_address "nullable"
+        timestamp last_activity
+        timestamp expires_at
+        timestamp created_at
+    }

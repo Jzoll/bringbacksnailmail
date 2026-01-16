@@ -10,7 +10,7 @@ import logging
 import uuid
 
 from ..database import get_db
-from ..models import ArchivedMail, User
+from ..models import Letter, User
 from .auth import jwt, SECRET_KEY, ALGORITHM, JWTError
 
 logger = logging.getLogger(__name__)
@@ -140,13 +140,19 @@ async def upload_mail_item(
             )
     
     # Create database record
-    new_item = ArchivedMail(
+    new_item = Letter(
         user_id=user_id,
-        direction=direction,
+        letter_type=direction,
         title=title,
         notes=notes,
-        mail_date=parsed_mail_date,
+        letter_date=parsed_mail_date,
         file_path=file_path,
+        file_type=file.content_type or "image/jpeg",
+        file_size=len(file_content),
+        privacy_level="private",
+        likes_count=0,
+        comments_count=0,
+        is_deleted=False,
     )
     
     db.add(new_item)
@@ -157,10 +163,10 @@ async def upload_mail_item(
     
     return MailItemResponse(
         id=new_item.id,
-        direction=new_item.direction,
+        direction=new_item.letter_type,
         title=new_item.title,
         notes=new_item.notes,
-        mail_date=new_item.mail_date.isoformat() if new_item.mail_date else None,
+        mail_date=new_item.letter_date.isoformat() if new_item.letter_date else None,
         created_at=new_item.created_at.isoformat(),
     )
 
@@ -188,20 +194,20 @@ async def list_mail_items(
     """
     user_id = get_current_user_id(authorization)
     
-    query = db.query(ArchivedMail).filter(ArchivedMail.user_id == user_id)
+    query = db.query(Letter).filter(Letter.user_id == user_id)
     
     if direction:
-        query = query.filter(ArchivedMail.direction == direction)
+        query = query.filter(Letter.letter_type == direction)
     
-    items = query.order_by(ArchivedMail.created_at.desc()).offset(offset).limit(limit).all()
+    items = query.order_by(Letter.created_at.desc()).offset(offset).limit(limit).all()
     
     return [
         MailItemResponse(
             id=item.id,
-            direction=item.direction,
+            direction=item.letter_type,
             title=item.title,
             notes=item.notes,
-            mail_date=item.mail_date.isoformat() if item.mail_date else None,
+            mail_date=item.letter_date.isoformat() if item.letter_date else None,
             created_at=item.created_at.isoformat(),
         )
         for item in items
@@ -227,9 +233,9 @@ async def delete_mail_item(
     """
     user_id = get_current_user_id(authorization)
     
-    item = db.query(ArchivedMail).filter(
-        ArchivedMail.id == item_id,
-        ArchivedMail.user_id == user_id
+    item = db.query(Letter).filter(
+        Letter.id == item_id,
+        Letter.user_id == user_id
     ).first()
     
     if not item:

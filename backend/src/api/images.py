@@ -7,7 +7,7 @@ import os
 import logging
 
 from ..database import get_db
-from ..models import ArchivedMail
+from ..models import Letter
 from .auth import jwt, SECRET_KEY, ALGORITHM, JWTError
 
 logger = logging.getLogger(__name__)
@@ -59,9 +59,9 @@ async def stream_image(
     user_id = get_current_user_id(authorization)
     
     # Verify ownership
-    item = db.query(ArchivedMail).filter(
-        ArchivedMail.id == item_id,
-        ArchivedMail.user_id == user_id
+    item = db.query(Letter).filter(
+        Letter.id == item_id,
+        Letter.user_id == user_id
     ).first()
     
     if not item:

@@ -4,6 +4,58 @@ All notable changes to the Bring Back Snail Mail project will be documented in t
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] - 2026-01-16
+
+### Added
+- Frontend: Complete sign-up functionality integrated into SignIn page
+  - Toggle between sign-in and sign-up modes with "Need an account?" / "Already have an account?" button
+  - Sign-up form with email, username (optional), password, and confirm password fields
+  - Password confirmation validation
+  - Form validation for matching passwords and minimum length requirements
+- Frontend: Password visibility toggle feature with SVG icons
+  - Eye icon (show password) and eye-slash icon (hide password)
+  - Separate toggle states for password and confirm password fields
+  - Icons stored in `/frontend/src/assets/icons/` directory
+- Frontend: Password strength indicator
+  - Real-time visual strength meter with 5-bar display
+  - Color-coded feedback: Red (Weak) → Yellow (Fair) → Cyan (Good) → Green (Strong)
+  - Strength calculation based on length, uppercase/lowercase, numbers, and special characters
+  - Dynamic label display (Weak, Fair, Good, Strong)
+- Frontend: "Remember Me" checkbox on sign-in form for persistent session management
+- Frontend: "Forgot Password?" link on sign-in form (links to `/forgot-password` route)
+- Frontend: Terms of Service acceptance checkbox on sign-up form
+  - Required checkbox with links to Terms of Service and Privacy Policy
+  - Opens in new tab for user convenience
+  - Validation prevents sign-up without acceptance
+- Frontend: SVG icon infrastructure
+  - Created `/frontend/src/assets/icons/` directory for SVG assets
+  - Added TypeScript declarations for SVG module imports in `vite-env.d.ts`
+  - SVG icons imported as URL strings for img tag rendering
+
+### Updated
+- Frontend: SignIn page completely refactored with dual-mode functionality
+  - Dynamic header and subtitle based on current mode (sign-in vs sign-up)
+  - Conditional form rendering with mode-specific fields
+  - Enhanced accessibility with proper ARIA labels
+  - Improved button styling with full width and proper disabled states
+- Frontend: Password input fields enhanced with relative positioning for icon buttons
+  - Added padding-right to accommodate toggle buttons
+  - Consistent styling across all password fields
+- Backend: Authentication ready for "Remember Me" functionality (token expiration adjustment needed)
+
+### Security
+- Frontend: Password strength validation encourages stronger passwords
+- Frontend: Terms of Service acceptance ensures legal compliance
+- Frontend: Confirm password field prevents typos during registration
+
+### User Experience
+- Frontend: Seamless toggle between sign-in and sign-up without page navigation
+- Frontend: Visual feedback for password strength guides users to create secure passwords
+- Frontend: Password visibility toggle improves usability, especially on mobile devices
+- Frontend: "Forgot Password?" link provides clear path for account recovery
+- Frontend: "Remember Me" option gives users control over session persistence
+
 ## [Unreleased] - 2026-01-15
 
 ### Added
